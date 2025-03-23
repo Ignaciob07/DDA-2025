@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/30ef" --include "../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/ec67/hdl" --include "../../../../../ddaU6_WoMem/rtl/register_file" --include "../../../../../ddaU6_WoMem/rtl/top_board" --include "../../../../../ddaU6_WoMem/rtl/include" \
+"../../../../modules/fsm.v" \
+"../../../../modules/tb_fsm.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

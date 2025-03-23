@@ -1,0 +1,7 @@
+0.7
+2020.2
+May  7 2023
+15:24:31
+C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
+C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/modules/fsm.v,1738263231,verilog,,C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/modules/tb_fsm.v,,fsm,,,../../../../../ddaU6_WoMem/rtl/include;../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/30ef;../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/ec67/hdl;../../../../../ddaU6_WoMem/rtl/register_file;../../../../../ddaU6_WoMem/rtl/top_board,,,,,
+C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/modules/tb_fsm.v,1738273702,verilog,,,,tb_fsm,,,../../../../../ddaU6_WoMem/rtl/include;../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/30ef;../../../../../ddaU6_WoMem/rtl/micro/design_1/ipshared/ec67/hdl;../../../../../ddaU6_WoMem/rtl/register_file;../../../../../ddaU6_WoMem/rtl/top_board,,,,,

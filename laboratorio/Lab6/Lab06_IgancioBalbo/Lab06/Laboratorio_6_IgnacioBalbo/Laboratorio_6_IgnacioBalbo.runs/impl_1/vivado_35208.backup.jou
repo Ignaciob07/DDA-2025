@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Jan 30 15:20:12 2025
+# Process ID: 35208
+# Current directory: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/impl_1
+# Command line: vivado.exe -log fpga.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fpga.tcl -notrace
+# Log file: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/impl_1/fpga.vdi
+# Journal file: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/impl_1\vivado.jou
+# Running On: IgnachPC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17088 MB
+#-----------------------------------------------------------
+source fpga.tcl -notrace

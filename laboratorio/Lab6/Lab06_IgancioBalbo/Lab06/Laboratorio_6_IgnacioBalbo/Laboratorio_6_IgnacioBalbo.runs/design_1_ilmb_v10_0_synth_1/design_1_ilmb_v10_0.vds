@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Tue Jan 28 16:43:27 2025
+# Process ID: 24336
+# Current directory: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1
+# Command line: vivado.exe -log design_1_ilmb_v10_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_ilmb_v10_0.tcl
+# Log file: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0.vds
+# Journal file: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1\vivado.jou
+# Running On: IgnachPC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17088 MB
+#-----------------------------------------------------------
+source design_1_ilmb_v10_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 461.082 ; gain = 189.996
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_ilmb_v10_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry be9ad90cd80a723c to dir: C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.cache/ip/2023.1/b/e/be9ad90cd80a723c/design_1_dlmb_v10_0.dcp to C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.cache/ip/2023.1/b/e/be9ad90cd80a723c/design_1_dlmb_v10_0_sim_netlist.v to C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.cache/ip/2023.1/b/e/be9ad90cd80a723c/design_1_dlmb_v10_0_sim_netlist.vhdl to C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.cache/ip/2023.1/b/e/be9ad90cd80a723c/design_1_dlmb_v10_0_stub.v to C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.cache/ip/2023.1/b/e/be9ad90cd80a723c/design_1_dlmb_v10_0_stub.vhdl to C:/DDA2024/Labs/Lab06/Laboratorio_6_IgnacioBalbo/Laboratorio_6_IgnacioBalbo.runs/design_1_ilmb_v10_0_synth_1/design_1_ilmb_v10_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_ilmb_v10_0, cache-ID = be9ad90cd80a723c.
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 28 16:43:40 2025...
