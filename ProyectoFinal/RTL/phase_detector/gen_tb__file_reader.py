@@ -23,6 +23,9 @@ def extract_ports(verilog_file):
     with open(verilog_file, "r") as f:
         content = f.read()
 
+    # Extract only the portion before the first occurrence of ");
+    content = content.split(");", 1)[0]
+
     # Regex to match signals starting with "i_" (inputs) or "o_" (outputs)
     pattern = re.findall(r"\b(i_[\w_]+|o_[\w_]+)\b", content)
 
@@ -32,7 +35,7 @@ def extract_ports(verilog_file):
 
     return inputs, outputs
 
-verilog_file_name = "lut_atan" # CHANGE FILE NAME
+verilog_file_name = "phase_detector" # CHANGE FILE NAME
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 verilog_filename = os.path.join(script_dir, verilog_file_name + ".v") 
@@ -115,8 +118,8 @@ with open(tb_filename, "w") as f:
     f.write(f"        @(posedge i_clock); // Wait for one clock cycle\n")
     
     for i, output in enumerate(outputs):
-        f.write(f"        if ({output} !== expected_out_{output}) begin\n")
-        f.write(f"            $display({'"Mismatch: expected=%d, got=%d at time: %t"'}, expected_out_{output}, {output}, $time);\n")
+        f.write(f"        if ($unsigned({output}) !== $unsigned(expected_out_{output})) begin\n")
+        f.write(f"            $display({'"Mismatch: expected=%d, got=%d at time: %t"'}, $unsigned(expected_out_{output}), $unsigned({output}), $time);\n")
         f.write(f"            test_passed = 0;\n")
         f.write(f"        end\n")
         f.write(f"        else begin\n")
