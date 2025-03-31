@@ -13,7 +13,7 @@ module phase_detector #(
 
     localparam NB_LUT_OUT  = 16                 ;
     localparam NBF_LUT_OUT = 14                 ;
-    localparam H_PI_16_14  = 16'd25736          ;
+    localparam H_PI_16_14  = 17'd25736          ;
 
     wire [NB_IN_PD  - 1 : 0] in_phase_a         ;
     wire [NB_IN_PD  - 1 : 0] quadrature_a       ;
@@ -63,28 +63,28 @@ lut_atan #(
 );
 
     always @(*) begin
-        if(!i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
+        if(i_in_phase[NB_IN_PD - 1] && !i_quadrature[NB_IN_PD - 1]) begin
             phase_a_converted = phase_a + H_PI_16_14;
             phase_r_converted = phase_r + H_PI_16_14;
         end
         
-        else if(!i_in_phase[NB_IN_PD - 1] && !i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_16_14 << 2);
-            phase_r_converted = phase_r + (H_PI_16_14 << 2);
+        else if(i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
+            phase_a_converted = phase_a + (H_PI_16_14 << 1);
+            phase_r_converted = phase_r + (H_PI_16_14 << 1);
         end
         
-        else if(i_in_phase[NB_IN_PD - 1] && !i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_16_14 << 2) + H_PI_16_14;
-            phase_r_converted = phase_r + (H_PI_16_14 << 2) + H_PI_16_14;
+        else if(!i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
+            phase_a_converted = phase_a + (H_PI_16_14 << 1) + H_PI_16_14;
+            phase_r_converted = phase_r + (H_PI_16_14 << 1) + H_PI_16_14;
         end
 
         else begin
             phase_a_converted = phase_a;
-            phase_r_converted = phase_a;
+            phase_r_converted = phase_r;
         end
 
     end
 
-    assign o_phase_error = phase_a_converted - phase_r_converted;
+    assign o_phase_error = $signed(phase_a_converted - phase_r_converted);
     
 endmodule

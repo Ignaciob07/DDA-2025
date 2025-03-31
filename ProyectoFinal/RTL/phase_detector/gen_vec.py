@@ -3,6 +3,7 @@ import numpy as np
 import os
 import random
 import matplotlib.pyplot as plt
+import cmath
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 output_file_in  = os.path.join(script_dir, "input_data.txt")
@@ -52,6 +53,9 @@ plt.legend()
 plt.grid()
 # plt.show()
 
+r = complex(0.5, 0)  # Initial complex number
+theta = math.radians(1)  # Convert 1 degree to radians
+
 with open(output_file_in, "w") as f_in, open(output_file_out, "w") as f_out:
     
     # Random -------
@@ -69,18 +73,23 @@ with open(output_file_in, "w") as f_in, open(output_file_out, "w") as f_out:
     
             # f_in.write(f"{in_phase} {quadrature}\n")
 
-    for symbol in rx_symbols:
-        symbol_real = round(symbol.real * 2**nbf_in)
-        symbol_imag = round(symbol.imag * 2**nbf_in)
-        f_in.write(f"{symbol_real} {symbol_imag}\n")
+    # # for symbol in rx_symbols: TABA USANDO ESTO
+    # #     symbol_real = round(symbol.real * 2**nbf_in)
+    # #     symbol_imag = round(symbol.imag * 2**nbf_in)
+    # #     f_in.write(f"{symbol_real} {symbol_imag}\n")
 
-        closest_symbol = symbols[np.argmin(abs(symbols - symbol))]
-        closest_symbol = np.round(closest_symbol * 2 ** 7) / 2**7
-        phase_error = np.angle(closest_symbol * np.conj(symbol))
-        print(f"r - a = {np.rad2deg(np.angle(closest_symbol))} - {np.rad2deg(np.angle(symbol))} = {np.rad2deg(phase_error)}")
+    # #     closest_symbol = symbols[np.argmin(abs(symbols - symbol))]
+    # #     closest_symbol = np.round(closest_symbol * 2 ** 7) / 2**7
+    # #     phase_error = np.angle(closest_symbol * np.conj(symbol))
+    # #     print(f"r - a = {np.rad2deg(np.angle(closest_symbol))} - {np.rad2deg(np.angle(symbol))} = {np.rad2deg(phase_error)}")
         
-        phase_error = int(np.round(phase_error * 2 ** 7))
-        f_out.write(f"{phase_error}\n")
+    # #     phase_error = int(np.round(phase_error * 2 ** 7))
+    # #     f_out.write(f"{phase_error}\n")
+    for i in range(360):
+        f_in.write(f"{abs(round(r.real*2**7))} {abs(round(r.imag *2**7))}\n")
+        f_out.write(f"{r.real} {r.imag}\n")
+        r = r * cmath.exp(complex(0, theta))
+
 
         # float_i = in_phase / 2**nb_in
         # # print (float_i)
