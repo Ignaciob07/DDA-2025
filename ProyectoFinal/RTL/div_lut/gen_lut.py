@@ -52,11 +52,18 @@ with open(output_file, "w") as f:
     f.write("        if(i_data_q[NB_DATA_IN  - 1])                   \n")
     f.write("            data_q = ~i_data_q + 1;                     \n")
     f.write("        else                                            \n")
-    f.write("            data_q = i_data_q;                           \n\n")
-        
-    f.write("        index [13-:7] = data_i;")
-    f.write("        index [6-:7] = data_q;")
+    f.write("            data_q = i_data_q;                          \n\n")
+    
+    f.write("        if(data_q == 8'b10000000)                       \n")
+    f.write("           index [6-:7] = 7'b1111111;\n")
+    f.write("        else                       \n")
+    f.write("           index [6-:7] = data_q;\n\n")
 
+    f.write("        if(data_i == 8'b10000000)                       \n")
+    f.write("           index [13-:7] = 7'b1111111;\n")
+    f.write("        else                       \n")
+    f.write("           index [13-:7] = data_i;\n\n")
+        
     f.write("        r_atan = lut[index];                                 \n")
 
     

@@ -27,9 +27,19 @@ module lut_atan #(
         if(i_data_q[NB_DATA_IN  - 1])                   
             data_q = ~i_data_q + 1;                     
         else                                            
-            data_q = i_data_q;                           
+            data_q = i_data_q;                          
 
-        index [13-:7] = data_i;        index [6-:7] = data_q;        r_atan = lut[index];                                 
+        if(data_q == 8'b10000000)                       
+           index [6-:7] = 7'b1111111;
+        else                       
+           index [6-:7] = data_q;
+
+        if(data_i == 8'b10000000)                       
+           index [13-:7] = 7'b1111111;
+        else                       
+           index [13-:7] = data_i;
+
+        r_atan = lut[index];                                 
                                                            
     end
 
