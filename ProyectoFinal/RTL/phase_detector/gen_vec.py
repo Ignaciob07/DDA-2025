@@ -66,12 +66,12 @@ with open(output_file_in, "w") as f_in, open(output_file_out, "w") as f_out:
     # Random -------
     
     # All ----------
-    # for in_phase in range((2**nb_in)):     
-    #     for quadrature in range((2**nb_in)):   
-    #         i = (in_phase << NB_I) | quadrature  # LUT index
+    for in_phase in range((2**nb_in)):     
+        for quadrature in range((2**nb_in)):   
+            # i = (in_phase << NB_I) | quadrature  # LUT index
     # All ----------
     
-            # f_in.write(f"{in_phase} {quadrature}\n")
+            f_in.write(f"{in_phase} {quadrature}\n")
 
     # # for symbol in rx_symbols: TABA USANDO ESTO
     # #     symbol_real = round(symbol.real * 2**nbf_in)
@@ -85,11 +85,15 @@ with open(output_file_in, "w") as f_in, open(output_file_out, "w") as f_out:
         
     # #     phase_error = int(np.round(phase_error * 2 ** 7))
     # #     f_out.write(f"{phase_error}\n")
-    for i in range(360):
-        f_in.write(f"{abs(round(r.real*2**7))} {abs(round(r.imag *2**7))}\n")
-        f_out.write(f"{r.real} {r.imag}\n")
-        r = r * cmath.exp(complex(0, theta))
-
+    
+    
+        # f_in.write(f"60 60\n")
+        # f_in.write(f"200 60\n")
+        # f_in.write(f"200 200\n")
+        # f_in.write(f"60 200\n")
+    
+        # f_in.close()
+    
 
         # float_i = in_phase / 2**nb_in
         # # print (float_i)

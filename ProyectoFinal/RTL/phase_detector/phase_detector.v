@@ -1,7 +1,7 @@
 module phase_detector #(
     parameter NB_IN_PD    = 8     ,
     parameter NBF_IN_PD   = 7     ,
-    parameter NB_OUT_PD   = 17    ,
+    parameter NB_OUT_PD   = 18    ,
     parameter NBF_OUT_PD  = 14
 ) (
     output  signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
@@ -13,7 +13,7 @@ module phase_detector #(
 
     localparam NB_LUT_OUT  = 16                 ;
     localparam NBF_LUT_OUT = 14                 ;
-    localparam H_PI_16_14  = 17'd25736          ;
+    localparam H_PI_17_14  = 17'd25736          ;
 
     wire [NB_IN_PD  - 1 : 0] in_phase_a         ;
     wire [NB_IN_PD  - 1 : 0] quadrature_a       ;
@@ -36,20 +36,15 @@ lut_atan #(
 );
 
 slicer #(
-    .NB_DATA_IN_OUT  (NB_IN_PD          ),
-    .NBF_DATA_IN_OUT (NBF_IN_PD         )
-) u_slicer_i (
-    .o_decided_symbol (in_phase_a       ),
-    .i_received_symbol(i_in_phase       )
+    .NB_DATA_IN_OUT     (NB_IN_PD       ),
+    .NBF_DATA_IN_OUT    (NBF_IN_PD      )
+) u_slicer (
+    .o_decided_symbol_q (quadrature_a   ),
+    .i_received_symbol_q(i_quadrature   ),
+    .o_decided_symbol_i (in_phase_a     ),
+    .i_received_symbol_i(i_in_phase     )
 );
 
-slicer #(
-    .NB_DATA_IN_OUT  (NB_IN_PD          ),
-    .NBF_DATA_IN_OUT (NBF_IN_PD         )
-) u_slicer_q (
-    .o_decided_symbol (quadrature_a     ),
-    .i_received_symbol(i_quadrature     )
-);
 
 lut_atan #(
     .NB_DATA_IN     (NB_IN_PD       ),
@@ -64,18 +59,18 @@ lut_atan #(
 
     always @(*) begin
         if(i_in_phase[NB_IN_PD - 1] && !i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + H_PI_16_14;
-            phase_r_converted = phase_r + H_PI_16_14;
+            phase_a_converted = phase_a + H_PI_17_14;
+            phase_r_converted = phase_r + H_PI_17_14;
         end
         
         else if(i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_16_14 << 1);
-            phase_r_converted = phase_r + (H_PI_16_14 << 1);
+            phase_a_converted = phase_a + (H_PI_17_14 << 1);
+            phase_r_converted = phase_r + (H_PI_17_14 << 1);
         end
         
         else if(!i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_16_14 << 1) + H_PI_16_14;
-            phase_r_converted = phase_r + (H_PI_16_14 << 1) + H_PI_16_14;
+            phase_a_converted = phase_a + (H_PI_17_14 << 1) + H_PI_17_14;
+            phase_r_converted = phase_r + (H_PI_17_14 << 1) + H_PI_17_14;
         end
 
         else begin
