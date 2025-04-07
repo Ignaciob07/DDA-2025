@@ -3,7 +3,7 @@ module loop_filter #(
     parameter NB_PHASE_IN       = 18,
     parameter NBF_PHASE_IN      = 14,
 
-    parameter NB_PHASE_OUT      = 18,
+    parameter NB_PHASE_OUT      = 18, // 0 - 2pi
     parameter NBF_PHASE_OUT     = 14
 
 ) (

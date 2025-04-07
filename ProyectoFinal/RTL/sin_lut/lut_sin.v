@@ -13,8 +13,7 @@ module lut_sin #(
     reg  [NB_DATA_OUT - 1 : 0] lut [NB_LUT - 1 : 0];
 
     always @(*) begin
-        r_sin = lut[i_data];                                 
-                                                           
+        r_sin = lut[i_data];                                                                                  
     end
 
     assign o_sin = r_sin;
