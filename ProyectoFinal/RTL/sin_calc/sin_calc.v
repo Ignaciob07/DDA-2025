@@ -1,4 +1,4 @@
-module moduleName #(
+module sin_calc #(
     parameter NB_DATA_IN    = 18,
     parameter NBF_DATA_IN   = 14,
     parameter NB_DATA_OUT   = 8,
@@ -15,7 +15,7 @@ localparam NBI_DATA_IN = NB_DATA_IN - NBF_DATA_IN          ;
 localparam NB_SIN_POS_TRUNC = NBF_DATA_OUT + NBI_DATA_IN   ; // 11
 localparam NB_SIN_CONVERTED = NB_DATA_OUT                  ;
 
-localparam 3_PI_2_11_7 = 11'd603          ;
+localparam PI3_2_11_7 = 11'd603          ;
 localparam PI_11_7     = 11'd402          ;
 localparam PI_2_11_7   = 11'd201          ;
 
@@ -34,8 +34,8 @@ always @(*) begin
         in_pos = i_data[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC];  
     end
 
-    if (in_pos >= 3_PI_2_11_7) begin
-        in_converted_offset = PI_2_11_7 - (in_pos - 3_PI_2_11_7);
+    if (in_pos >= PI3_2_11_7) begin
+        in_converted_offset = PI_2_11_7 - (in_pos - PI3_2_11_7);
         sin_signed = ~sin_lut + 1;
     end
     else if (in_pos >= PI_11_7) begin
