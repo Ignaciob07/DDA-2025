@@ -14,7 +14,7 @@ localparam PI_2_18_14   = 18'd25736                  ;
 localparam _2_PI_18_14   = 18'd102944                ;
 
 reg signed [NB_DATA_IN  - 1 : 0] cos_to_sin          ;
-reg signed [NB_DATA_IN  - 1 : 0] cos_converted     ;
+reg signed [NB_DATA_IN  - 1 : 0] cos_converted       ;
 
 always @(*) begin
     
