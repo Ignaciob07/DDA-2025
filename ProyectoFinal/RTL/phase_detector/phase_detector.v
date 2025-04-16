@@ -14,14 +14,15 @@ module phase_detector #(
     localparam NB_LUT_OUT  = 16                 ;
     localparam NBF_LUT_OUT = 14                 ;
     localparam H_PI_17_14  = 17'd25736          ;
+    localparam PI_17_14  = 17'd51472          ;
 
     wire [NB_IN_PD  - 1 : 0] in_phase_a         ;
     wire [NB_IN_PD  - 1 : 0] quadrature_a       ;
 
     wire [NB_LUT_OUT - 1 : 0] phase_r            ;
     wire [NB_LUT_OUT - 1 : 0] phase_a            ;
-    reg [NB_OUT_PD - 1 : 0] phase_r_converted  ;
-    reg [NB_OUT_PD - 1 : 0] phase_a_converted  ;
+    reg signed [NB_OUT_PD - 1 : 0] phase_r_converted  ;
+    reg signed [NB_OUT_PD - 1 : 0] phase_a_converted  ;
 
 
 lut_atan #(
@@ -64,13 +65,13 @@ lut_atan #(
         end
         
         else if(i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_17_14 << 1);
-            phase_r_converted = phase_r + (H_PI_17_14 << 1);
+            phase_a_converted = ~(PI_17_14 - phase_a ) + 1;
+            phase_r_converted = ~(PI_17_14 - phase_r ) + 1;
         end
         
         else if(!i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
-            phase_a_converted = phase_a + (H_PI_17_14 << 1) + H_PI_17_14;
-            phase_r_converted = phase_r + (H_PI_17_14 << 1) + H_PI_17_14;
+            phase_a_converted = ~phase_a + 1 ;
+            phase_r_converted = ~phase_r + 1 ;
         end
 
         else begin
@@ -80,6 +81,6 @@ lut_atan #(
 
     end
 
-    assign o_phase_error = $signed(phase_a_converted - phase_r_converted);
+    assign o_phase_error = $signed(phase_r_converted - phase_a_converted);
     
 endmodule

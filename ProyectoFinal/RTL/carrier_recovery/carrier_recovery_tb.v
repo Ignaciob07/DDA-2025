@@ -17,21 +17,41 @@ module carrier_recovery_tb ();
 
     parameter INPUT_FILE  = "c:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/input_data.txt";
     parameter OUTPUT_FILE = "c:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/expected_output.txt";
+    parameter OUTPUT_FILE_ATAN_R = "c:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/expected_output_atan_r.txt";
+    parameter OUTPUT_FILE_ATAN_A = "c:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/expected_output_atan_a.txt";
+    parameter OUTPUT_FILE_PHASE_ERR = "c:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/expected_output_phase_err.txt";
     
-    integer input_fd, output_fd, scan_in, scan_out;
+    integer input_fd, output_fd, scan_in, scan_out, output_fd_atan_r, output_fd_atan_a, output_fd_phase_err;
     integer test_passed;
+
     reg [NB_OUT_CARRIER_RECOVERY-1:0] expected_out_o_corrected_q;
     reg [NB_OUT_CARRIER_RECOVERY-1:0] expected_out_o_corrected_i;
-    
+
+    reg [18-1:0] expected_out_o_atan_r;
+    reg [18-1:0] expected_out_o_atan_a;    
+
+    reg [18-1:0] expected_out_o_phase_err;    
+
     initial begin
         test_passed = 1;
         i_clock = 0;
         i_rst_n = 0;
-        #10 i_rst_n = 1;
+        i_data_i = 0;
+        i_data_q = 0;
+        
+        @(posedge i_clock); // Wait for one clock cycle
+
+        i_rst_n = 1;
     
         // Open files
         input_fd = $fopen(INPUT_FILE, "r");
         output_fd = $fopen(OUTPUT_FILE, "r");
+
+        output_fd_atan_r = $fopen(OUTPUT_FILE_ATAN_R, "r");
+        output_fd_atan_a = $fopen(OUTPUT_FILE_ATAN_A, "r");
+        output_fd_phase_err = $fopen(OUTPUT_FILE_PHASE_ERR, "r");
+        
+        
         if (input_fd == 0) begin
             $display("Error: Could not open input or output file.");
             $finish;
@@ -40,6 +60,11 @@ module carrier_recovery_tb ();
         while (!$feof(input_fd)) begin
             scan_in = $fscanf(input_fd, "%d %d\n", i_data_q,  i_data_i);
             scan_out = $fscanf(output_fd, "%d %d\n", expected_out_o_corrected_q,  expected_out_o_corrected_i);
+            
+            $fscanf(output_fd_atan_r, "%d\n", expected_out_o_atan_r);
+            $fscanf(output_fd_atan_a, "%d\n", expected_out_o_atan_a);
+            $fscanf(output_fd_phase_err, "%d\n", expected_out_o_phase_err);
+            
             if (scan_in != 2) begin
                 $display("Error reading files");
                 $finish;

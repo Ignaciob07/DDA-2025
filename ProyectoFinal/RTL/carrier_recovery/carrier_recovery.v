@@ -14,7 +14,7 @@ module carrier_recovery #(
     input                                           i_rst_n         
 );
 
-    localparam NB_IN_ESTIMATED_PHASE    = 8;
+    localparam NB_IN_ESTIMATED_PHASE    = 9;
     localparam NBF_IN_ESTIMATED_PHASE   = 7;
 
     localparam NB_FULL_RES_MUL  = NB_IN_CARRIER_RECOVERY  + NB_IN_ESTIMATED_PHASE ;
@@ -51,11 +51,8 @@ module carrier_recovery #(
     localparam NB_COS_OUT        = NB_IN_ESTIMATED_PHASE  ;
     localparam NBF_COS_OUT       = NBF_IN_ESTIMATED_PHASE ;
 
-    reg  [NB_FULL_RES_MUL - 1 : 0]   mul_out_i_full_res;
-    reg  [NB_FULL_RES_MUL - 1 : 0]   mul_out_q_full_res;
-
-    wire [NB_FULL_RES_MUL - 1 : 0]   mul_out_i_rnd     ;
-    wire [NB_FULL_RES_MUL - 1 : 0]   mul_out_q_rnd     ;
+    wire [NB_MUL_OUT      - 1 : 0]   mul_out_i_rnd     ;
+    wire [NB_MUL_OUT      - 1 : 0]   mul_out_q_rnd     ;
 
     wire [NB_PD_OUT       - 1 : 0]   phase_detector_out;
 
@@ -63,35 +60,28 @@ module carrier_recovery #(
 
     wire [NB_VCO_OUT      - 1 : 0]   vco_out;
 
-    wire signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] estimated_phase_i ;
-    wire signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] estimated_phase_q ;
-
-    always @(*) begin
-        mul_out_i_full_res = i_data_i * estimated_phase_i;
-        mul_out_q_full_res = i_data_q * estimated_phase_q;
-    end
+    wire signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] data_cos ;
+    wire signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] data_sin ;
 
     assign o_corrected_i = mul_out_i_rnd;
     assign o_corrected_q = mul_out_q_rnd;
 
-rounding #(
-    .NB_IN  (NB_FULL_RES_MUL ),  
-    .NBF_IN (NBF_FULL_RES_MUL),      
-    .NB_RND (NB_MUL_OUT      ),      
-    .NBF_RND(NB_MUL_OUT      )     
-) u_round_i_mul (
-    .o_round(mul_out_i_rnd ),
-    .i_data (mul_out_i_full_res      )     
-);
-
-rounding #(
-    .NB_IN  (NB_FULL_RES_MUL ),  
-    .NBF_IN (NBF_FULL_RES_MUL),      
-    .NB_RND (NB_MUL_OUT      ),      
-    .NBF_RND(NB_MUL_OUT      )     
-) u_round_q_mul (
-    .o_round(mul_out_q_rnd      ),
-    .i_data (mul_out_q_full_res )     
+complex_multiplication #(
+    .NB_IN_CARRIER_RECOVERY(NB_IN_CARRIER_RECOVERY),
+    .NBF_IN_CARRIER_RECOVERY(NBF_IN_CARRIER_RECOVERY),
+    .NB_OUT_CARRIER_RECOVERY(NB_OUT_CARRIER_RECOVERY),
+    .NBF_OUT_CARRIER_RECOVERY(NBF_OUT_CARRIER_RECOVERY),
+    .NB_IN_ESTIMATED_PHASE(NB_IN_ESTIMATED_PHASE),
+    .NBF_IN_ESTIMATED_PHASE(NBF_IN_ESTIMATED_PHASE)
+) u_complex_mul(
+    .o_data_i   (mul_out_i_rnd),
+    .o_data_q   (mul_out_q_rnd),
+    .i_data_i   (i_data_i),
+    .i_data_q   (i_data_q),
+    .i_data_cos (data_cos),
+    .i_data_sin (data_sin),
+    .i_clock    (i_clock),
+    .i_rst_n    (i_rst_n)
 );
 
 phase_detector #(
@@ -137,7 +127,7 @@ cos_calc #(
     .NB_DATA_OUT (NB_COS_OUT    ),
     .NBF_DATA_OUT(NBF_COS_OUT   )
 ) u_cos_calc (
-    .o_cos   (estimated_phase_i ),
+    .o_cos   (data_cos ),
     .i_data  (vco_out           ),
     .i_clock (i_clock           ),
     .i_rst_n (i_rst_n           )
@@ -149,7 +139,7 @@ sin_calc #(
     .NB_DATA_OUT  (NB_COS_OUT   ),
     .NBF_DATA_OUT (NBF_COS_OUT  )
 ) u_sin_calc (
-    .o_sin   (estimated_phase_q ),
+    .o_sin   (data_sin ),
     .i_data  (vco_out           ),
     .i_clock (i_clock           ),
     .i_rst_n (i_rst_n           )

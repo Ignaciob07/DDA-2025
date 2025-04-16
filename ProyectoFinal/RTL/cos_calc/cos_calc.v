@@ -1,7 +1,7 @@
 module cos_calc #(
     parameter NB_DATA_IN    = 18,
     parameter NBF_DATA_IN   = 14,
-    parameter NB_DATA_OUT   = 8,
+    parameter NB_DATA_OUT   = 9,
     parameter NBF_DATA_OUT  = 7
 ) (
     output signed [NB_DATA_OUT - 1 : 0] o_cos      ,
@@ -20,7 +20,7 @@ always @(*) begin
     
     cos_to_sin = i_data + PI_2_18_14;
     
-    if (cos_to_sin >= _2_PI_18_14) begin
+    if ($signed(cos_to_sin) >= $signed(_2_PI_18_14)) begin
         cos_converted = cos_to_sin - _2_PI_18_14;
     end
     else begin 

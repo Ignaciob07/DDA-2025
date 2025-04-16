@@ -35,8 +35,8 @@ module loop_filter #(
     localparam signed NTPI      = -19'd102944   ; // - pi * 2
 
     // PROP AND INTEG CONSTANTS
-    localparam ki               = 8'hF0          ;
-    localparam kp               = 8'hF0          ; // do not use values less than F0
+    localparam ki               = 14'd8192          ; // 14 fractional bits
+    localparam kp               = 14'd819          ; // do not use values less than F0
 
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_proportional    ;
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_integrative     ;

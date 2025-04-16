@@ -1,7 +1,7 @@
 module sin_calc #(
     parameter NB_DATA_IN    = 18,
     parameter NBF_DATA_IN   = 14,
-    parameter NB_DATA_OUT   = 8,
+    parameter NB_DATA_OUT   = 9,
     parameter NBF_DATA_OUT  = 7
 ) (
     output signed [NB_DATA_OUT - 1 : 0] o_sin      ,
@@ -19,7 +19,8 @@ localparam PI3_2_11_7 = 11'd603          ;
 localparam PI_11_7     = 11'd402          ;
 localparam PI_2_11_7   = 11'd201          ;
 
-reg          [NB_SIN_POS_TRUNC - 1 : 0] in_pos             ; //(11,7)
+reg          [NB_DATA_IN - 1 : 0] in_pos             ; //(11,7)
+reg          [NB_SIN_POS_TRUNC - 1 : 0] in_pos_trunc       ; //(11,7)
 reg          [NB_SIN_CONVERTED - 1 : 0] in_converted_offset;
 wire         [NB_DATA_OUT      - 1 : 0] sin_lut            ;
 reg   signed [NB_SIN_CONVERTED - 1 : 0] sin_signed         ;
@@ -28,26 +29,27 @@ reg   signed [NB_SIN_CONVERTED - 1 : 0] r_sin              ;
 
 always @(*) begin
     if (i_data[NB_DATA_IN - 1]) begin
-        in_pos = ~i_data[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC] + 1;  
+        in_pos       = $unsigned(~i_data + 1);
+        in_pos_trunc = in_pos[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC];  
     end
     else begin
-        in_pos = i_data[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC];  
+        in_pos_trunc = $unsigned(i_data[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC]);  
     end
 
-    if (in_pos >= PI3_2_11_7) begin
-        in_converted_offset = PI_2_11_7 - (in_pos - PI3_2_11_7);
+    if ($unsigned(in_pos_trunc) >= $unsigned(PI3_2_11_7)) begin
+        in_converted_offset = PI_2_11_7 - (in_pos_trunc - PI3_2_11_7);
         sin_signed = ~sin_lut + 1;
     end
-    else if (in_pos >= PI_11_7) begin
-        in_converted_offset = in_pos - PI_11_7;
+    else if ($unsigned(in_pos_trunc) >= $unsigned(PI_11_7)) begin
+        in_converted_offset = in_pos_trunc - PI_11_7;
         sin_signed = ~sin_lut + 1;
     end
-    else if (in_pos >= PI_2_11_7) begin
-        in_converted_offset = PI_2_11_7 - (in_pos - PI_2_11_7);
+    else if ($unsigned(in_pos_trunc) >= $unsigned(PI_2_11_7)) begin
+        in_converted_offset = PI_2_11_7 - (in_pos_trunc - PI_2_11_7);
         sin_signed = sin_lut;
     end 
     else begin
-        in_converted_offset = in_pos;
+        in_converted_offset = in_pos_trunc;
         sin_signed = sin_lut;
     end
 end
