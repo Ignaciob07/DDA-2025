@@ -1,0 +1,18 @@
+0.7
+2020.2
+May  7 2023
+15:24:31
+C:/Maestria/DDA-2025/Basic_Modules/rounding.v,1744231961,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc.v,,rounding,,,,,,,,
+C:/Maestria/DDA-2025/Basic_Modules/trunc_sat.v,1743870807,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v,,trunc_sat,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v,1744828518,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v,,carrier_recovery,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v,1744829442,verilog,,,,carrier_recovery_tb,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v,1744829299,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v,,complex_multiplication,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v,1744756611,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v,,cos_calc,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan.v,1743622402,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.v,,lut_atan,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v,1744752729,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan.v,,loop_filter,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v,1744834354,verilog,,C:/Maestria/DDA-2025/Basic_Modules/rounding.v,,phase_detector,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc.v,1744756430,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/slicer/slicer.v,,sin_calc,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.v,1744756390,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v,,lut_sin,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/slicer/slicer.v,1743948356,verilog,,C:/Maestria/DDA-2025/Basic_Modules/trunc_sat.v,,slicer,,,,,,,,
+C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v,1744669457,verilog,,C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v,,vco,,,,,,,,
+C:/Maestria/carrier_recovery/carrier_recovery.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
