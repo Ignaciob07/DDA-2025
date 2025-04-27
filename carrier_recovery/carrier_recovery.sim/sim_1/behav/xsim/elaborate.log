@@ -1,27 +1,9 @@
 Vivado Simulator v2023.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot carrier_recovery_behav xil_defaultlib.carrier_recovery xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot carrier_recovery_tb_behav xil_defaultlib.carrier_recovery_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "C:/Users/IgnacioBalbo/Documents/Master/DDA-2025/carrier_recovery/carrier_recovery.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/IgnacioBalbo/Documents/Master/DDA-2025/carrier_recovery/carrier_recovery.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.rounding(NB_IN=17)
-Compiling module xil_defaultlib.complex_multiplication_default
-Compiling module xil_defaultlib.lut_atan_default
-Compiling module xil_defaultlib.slicer(NBF_DATA_IN_OUT=8)
-Compiling module xil_defaultlib.phase_detector(NBF_IN_PD=8)
-Compiling module xil_defaultlib.trunc_sat(NB_IN=26,NBF_IN=22,NB_...
-Compiling module xil_defaultlib.loop_filter_default
-Compiling module xil_defaultlib.vco_default
-Compiling module xil_defaultlib.lut_sin(NB_DATA_IN=9,NB_DATA_OUT...
-Compiling module xil_defaultlib.sin_calc_default
-Compiling module xil_defaultlib.cos_calc
-Compiling module xil_defaultlib.carrier_recovery
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot carrier_recovery_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

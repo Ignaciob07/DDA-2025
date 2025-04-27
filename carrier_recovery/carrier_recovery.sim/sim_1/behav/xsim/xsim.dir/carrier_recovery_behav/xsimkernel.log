@@ -1,7 +1,0 @@
-Running: xsim.dir/carrier_recovery_behav/xsimk.exe -simmode gui -wdb carrier_recovery_behav.wdb -simrunnum 0 -socket 50417
-Design successfully loaded
-Design Loading Memory Usage: 10388 KB (Peak: 10388 KB)
-Design Loading CPU Usage: 30 ms
-Simulation completed
-Simulation Memory Usage: 10992 KB (Peak: 10992 KB)
-Simulation CPU Usage: 93 ms
