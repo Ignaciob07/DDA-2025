@@ -27,8 +27,8 @@ module carrier_recovery #(
     localparam NB_PD_IN         = NB_MUL_OUT ;
     localparam NBF_PD_IN        = NB_MUL_OUT ;
 
-    localparam NB_PD_OUT        = 18 ;
-    localparam NBF_PD_OUT       = 14 ;
+    localparam NB_PD_OUT        = 11;//18 ;
+    localparam NBF_PD_OUT       = 7;//14 ;
 
     // Loop filter
     localparam NB_LF_IN         = NB_PD_OUT  ;

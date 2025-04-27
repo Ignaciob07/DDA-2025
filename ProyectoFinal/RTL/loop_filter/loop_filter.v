@@ -1,3 +1,5 @@
+`define ROUNDING
+
 module loop_filter #(
 
     parameter NB_PHASE_IN       = 18,
@@ -17,10 +19,10 @@ module loop_filter #(
     // RESOLUTIONS
     //  Output of multipliers trunc_sat to 18
 
-    localparam NB_K             = 8                 ; // S(8,14)
+    localparam NB_K             = NBF_PHASE_IN                 ; // S(14,14)
     
-    localparam NB_FULL_RES_MUL  = NB_PHASE_IN + NB_K ; // S(26,22)   --> S(18,14)
-    localparam NBF_FULL_RES_MUL = NBF_PHASE_IN + NB_K; // S(26,22)  --> S(18,14)
+    localparam NB_FULL_RES_MUL  = NB_PHASE_IN + NB_K ; // S(31,22)   --> S(18,14)
+    localparam NBF_FULL_RES_MUL = NBF_PHASE_IN + NB_K; // S(31,22)  --> S(18,14)
 
     localparam NB_TRU_SAT       = NB_PHASE_IN       ;
     localparam NBF_TRU_SAT      = NBF_PHASE_IN      ;
@@ -31,12 +33,19 @@ module loop_filter #(
     localparam NB_SUM_P_I       = NB_TRU_SAT + 1;
     localparam NBF_SUM_P_I      = NBF_TRU_SAT   ;
 
-    localparam        TPI       = 19'd102944    ; //   pi * 2
-    localparam signed NTPI      = -19'd102944   ; // - pi * 2
+    localparam signed TPI       = 18'd102944     ; //   pi * 2
+    wire signed [NB_PHASE_IN  - 1 : 0] double_pi ;
+    assign double_pi = TPI[17 -: NB_PHASE_IN]    ;
 
     // PROP AND INTEG CONSTANTS
-    localparam ki               = 14'd8192          ; // 14 fractional bits
-    localparam kp               = 14'd819          ; // do not use values less than F0
+    localparam ki               = 14'd819          ; // 14 fractional bits
+    localparam kp               = 14'd8192         ; //
+
+    wire signed [NB_K : 0] w_ki;
+    wire signed [NB_K : 0] w_kp;
+
+    assign w_ki = {1'b0, ki[13 -: NB_K]};
+    assign w_kp = 8'd64;
 
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_proportional    ;
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_integrative     ;
@@ -52,23 +61,23 @@ module loop_filter #(
     // multiplication
     always @(*) begin
         
-        mul_proportional = $signed(i_phase * kp);
-        mul_integrative  = $signed(i_phase * ki);
+        mul_proportional = $signed(i_phase) * w_kp;
+        mul_integrative  = $signed(i_phase) * w_ki;
         
         // sum integrative acummultor
         sum_i_accum = r_accumulator_i + mul_integrative_ts;
 
-        if ( $signed(sum_i_accum) >= $signed(TPI) ) begin
-            sum_i_converted = sum_i_accum - TPI;
+        if ( sum_i_accum >=double_pi ) begin
+            sum_i_converted = sum_i_accum - double_pi;
         end
-        else if ( $signed(sum_i_accum) <= $signed(NTPI) ) begin
-            sum_i_converted = sum_i_accum + TPI;
+        else if ( $signed(~sum_i_accum + 1) >= double_pi ) begin
+            sum_i_converted = sum_i_accum + double_pi;
         end
         else begin
             sum_i_converted = sum_i_accum[NB_TRU_SAT - 1 : 0];
         end
-         
-        sum_pi = r_accumulator_i + mul_proportional_ts;
+            
+        sum_pi = sum_i_converted + mul_proportional_ts;
         
     end
 
@@ -83,6 +92,27 @@ module loop_filter #(
         end
     end
 
+`ifdef ROUNDING
+    rounding #(
+        .NB_IN  (NB_FULL_RES_MUL),
+        .NBF_IN (NBF_FULL_RES_MUL),
+        .NB_RND (NB_TRU_SAT),
+        .NBF_RND(NBF_TRU_SAT)
+    ) u_round_p (
+        .o_round(mul_proportional_ts),
+        .i_data (mul_proportional)
+    );
+
+    rounding #(
+        .NB_IN  (NB_FULL_RES_MUL),
+        .NBF_IN (NBF_FULL_RES_MUL),
+        .NB_RND (NB_TRU_SAT),
+        .NBF_RND(NBF_TRU_SAT)
+    ) u_round_i (
+        .o_round(mul_integrative_ts),
+        .i_data (mul_integrative)
+    );
+`else
     trunc_sat #(
         .NB_IN      (NB_FULL_RES_MUL    ),
         .NBF_IN     (NBF_FULL_RES_MUL   ),
@@ -102,5 +132,6 @@ module loop_filter #(
         .o_trunc_sat(mul_integrative_ts ),
         .i_data     (mul_integrative    )
     );
+`endif 
 
 endmodule

@@ -19,6 +19,15 @@ localparam PI3_2_11_7 = 11'd603          ;
 localparam PI_11_7     = 11'd402          ;
 localparam PI_2_11_7   = 11'd201          ;
 
+// wire signed [NB_DATA_IN  - 1 : 0] pi_3_2          ;
+// wire signed [NB_DATA_IN  - 1 : 0] pi              ;
+// wire signed [NB_DATA_IN  - 1 : 0] pi_2              ;
+
+// assign signed pi_3_2 = PI3_2_11_7[11 -: NB_DATA_IN]
+// assign signed pi     = PI_11_7[11 -: NB_DATA_IN]
+// assign signed pi_2   = PI_2_11_7[11 -: NB_DATA_IN]
+
+
 reg          [NB_DATA_IN - 1 : 0] in_pos             ; //(11,7)
 reg          [NB_SIN_POS_TRUNC - 1 : 0] in_pos_trunc       ; //(11,7)
 reg          [NB_SIN_CONVERTED - 1 : 0] in_converted_offset;
@@ -33,7 +42,8 @@ always @(*) begin
         in_pos_trunc = in_pos[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC];  
     end
     else begin
-        in_pos_trunc = $unsigned(i_data[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC]);  
+        in_pos       = $unsigned(i_data);
+        in_pos_trunc = in_pos[NB_DATA_IN - 1 -: NB_SIN_POS_TRUNC];          
     end
 
     if ($unsigned(in_pos_trunc) >= $unsigned(PI3_2_11_7)) begin

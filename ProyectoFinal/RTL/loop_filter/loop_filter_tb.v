@@ -1,9 +1,9 @@
 `timescale 1ns/1ps
 module loop_filter_tb ();
-    parameter NB_PHASE_IN       = 18;
-    parameter NBF_PHASE_IN      = 14;
-    parameter NB_PHASE_OUT      = 18;
-    parameter NBF_PHASE_OUT     = 14;
+    parameter NB_PHASE_IN       = 11;
+    parameter NBF_PHASE_IN      = 7;
+    parameter NB_PHASE_OUT      = 11;
+    parameter NBF_PHASE_OUT     = 7;
 
     wire  signed [NB_PHASE_OUT     - 1 : 0]  o_phase;
     reg   signed [NB_PHASE_IN      - 1 : 0]  i_phase;
@@ -33,26 +33,22 @@ module loop_filter_tb ();
         
         #200;
 
-        i_phase = -110;
+        i_phase = -1;
 
-        #200;
-
-        i_phase = -0;
-
-        #200;
+        #100000
 
         $finish();
         
     end
 
-    loop_filter #(
+    vco #(
         .NB_PHASE_IN    (NB_PHASE_IN    ),
         .NBF_PHASE_IN   (NBF_PHASE_IN   ),
         .NB_PHASE_OUT   (NB_PHASE_OUT   ),
         .NBF_PHASE_OUT  (NBF_PHASE_OUT  )
-    ) u_loop_filter (
+    ) u_vco (
         .o_phase        (o_phase        ),
-        .i_phase        (error        ),
+        .i_phase        (i_phase        ),
         .i_clock        (i_clock        ),
         .i_rst_n        (i_rst_n        )    
     );

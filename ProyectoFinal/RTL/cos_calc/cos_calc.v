@@ -15,13 +15,18 @@ localparam _2_PI_18_14   = 18'd102944                ;
 
 reg signed [NB_DATA_IN  - 1 : 0] cos_to_sin          ;
 reg signed [NB_DATA_IN  - 1 : 0] cos_converted       ;
+wire signed [NB_DATA_IN  - 1 : 0] half_pi          ;
+wire signed [NB_DATA_IN  - 1 : 0] double_pi          ;
+
+assign half_pi = PI_2_18_14[17 -: NB_DATA_IN];
+assign double_pi = _2_PI_18_14[17 -: NB_DATA_IN];
 
 always @(*) begin
     
-    cos_to_sin = i_data + PI_2_18_14;
+    cos_to_sin = i_data + half_pi;
     
-    if ($signed(cos_to_sin) >= $signed(_2_PI_18_14)) begin
-        cos_converted = cos_to_sin - _2_PI_18_14;
+    if ($signed(cos_to_sin) >= $signed(double_pi)) begin
+        cos_converted = cos_to_sin - double_pi;
     end
     else begin 
         cos_converted = cos_to_sin;
