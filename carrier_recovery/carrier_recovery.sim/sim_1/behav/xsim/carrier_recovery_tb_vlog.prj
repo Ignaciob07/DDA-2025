@@ -1,17 +1,18 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../../DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan_full.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v" \
-"../../../../../DDA-2025/Basic_Modules/rounding.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/slicer/slicer.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/vco/vco.v" \
-"../../../../../DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" \
+"../../../../../ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v" \
+"../../../../../ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v" \
+"../../../../../ProyectoFinal/RTL/cos_calc/cos_calc.v" \
+"../../../../../ProyectoFinal/RTL/loop_filter/loop_filter.v" \
+"../../../../../ProyectoFinal/RTL/div_lut/lut_atan_full.v" \
+"../../../../../ProyectoFinal/RTL/div_lut/lut_atan_only.v" \
+"../../../../../ProyectoFinal/RTL/sin_lut/lut_sin.v" \
+"../../../../../ProyectoFinal/RTL/phase_detector/phase_detector.v" \
+"../../../../../Basic_Modules/rounding.v" \
+"../../../../../ProyectoFinal/RTL/sin_calc/sin_calc.v" \
+"../../../../../ProyectoFinal/RTL/slicer/slicer.v" \
+"../../../../../ProyectoFinal/RTL/vco/vco.v" \
+"../../../../../ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

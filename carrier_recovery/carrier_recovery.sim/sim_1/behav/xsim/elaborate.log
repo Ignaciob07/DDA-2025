@@ -6,4 +6,33 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Maestria/DDA-2025/carrier_recovery/carrier_recovery.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Maestria/DDA-2025/carrier_recovery/carrier_recovery.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.rounding(NB_IN=17)
+Compiling module xil_defaultlib.complex_multiplication_default
+Compiling module xil_defaultlib.lut_atan_full_default
+Compiling module xil_defaultlib.slicer(NBF_DATA_IN_OUT=8)
+Compiling module xil_defaultlib.lut_atan_only
+Compiling module xil_defaultlib.phase_detector(NBF_IN_PD=8)
+Compiling module xil_defaultlib.trunc_sat(NB_IN=18,NBF_IN=14,NB_...
+Compiling module xil_defaultlib.loop_filter(NB_PHASE_IN=11,NBF_P...
+Compiling module xil_defaultlib.vco(NB_PHASE_IN=11,NBF_PHASE_IN=...
+Compiling module xil_defaultlib.lut_sin(NB_DATA_IN=9,NB_DATA_OUT...
+Compiling module xil_defaultlib.sin_calc(NB_DATA_IN=11,NBF_DATA_...
+Compiling module xil_defaultlib.cos_calc(NB_DATA_IN=11,NBF_DATA_...
+Compiling module xil_defaultlib.carrier_recovery_default
+Compiling module xil_defaultlib.carrier_recovery_tb
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 103. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 104. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 105. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 106. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 107. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 108. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 109. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 110. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 111. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot carrier_recovery_tb_behav
