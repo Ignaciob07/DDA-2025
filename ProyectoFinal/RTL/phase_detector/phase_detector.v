@@ -30,16 +30,16 @@ module phase_detector #(
 
 
 
-lut_atan_full #(
-    .NB_DATA_IN     (NB_IN_PD       ),
-    .NB_DATA_OUT    (NB_OUT_PD     )
-) u_lut_atan_r ( // r: recived symbol
-    .o_atan         (phase_r        ),
-    .i_data_i       (i_in_phase     ),
-    .i_data_q       (i_quadrature   ),
-    .i_clock        (i_clock        ),
-    .i_rst_n        (i_rst_n        )    
-);
+// lut_atan_full #(
+//     .NB_DATA_IN     (NB_IN_PD       ),
+//     .NB_DATA_OUT    (NB_OUT_PD     )
+// ) u_lut_atan_r ( // r: recived symbol
+//     .o_atan         (phase_r        ),
+//     .i_data_i       (i_in_phase     ),
+//     .i_data_q       (i_quadrature   ),
+//     .i_clock        (i_clock        ),
+//     .i_rst_n        (i_rst_n        )    
+// );
 
 slicer #(
     .NB_DATA_IN_OUT     (NB_IN_PD       ),
@@ -52,16 +52,16 @@ slicer #(
 );
 
 
-lut_atan_full #(
-    .NB_DATA_IN     (NB_IN_PD       ),
-    .NB_DATA_OUT    (NB_OUT_PD     )
-) u_lut_atan_a ( // a: decided symbol
-    .o_atan         (phase_a        ),
-    .i_data_i       (in_phase_a     ),
-    .i_data_q       (quadrature_a   ),
-    .i_clock        (i_clock        ),
-    .i_rst_n        (i_rst_n        )    
-);
+// lut_atan_full #(
+//     .NB_DATA_IN     (NB_IN_PD       ),
+//     .NB_DATA_OUT    (NB_OUT_PD     )
+// ) u_lut_atan_a ( // a: decided symbol
+//     .o_atan         (phase_a        ),
+//     .i_data_i       (in_phase_a     ),
+//     .i_data_q       (quadrature_a   ),
+//     .i_clock        (i_clock        ),
+//     .i_rst_n        (i_rst_n        )    
+// );
 
     assign o_phase_error = r_phase_error;//phase_r - phase_a;
 
