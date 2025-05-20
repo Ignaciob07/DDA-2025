@@ -1,4 +1,4 @@
-//`define FULL_LUT
+// `define FULL_LUT
 // `define HALF_LUT
 `define HALF_LUT_RAM
 
@@ -46,7 +46,12 @@ module phase_detector #(
     reg  [8  - 1 : 0]    data_q_r                               ;
     reg  [14    - 1 : 0] index_a                                ; // index to access lut
     reg  [8  - 1 : 0]    data_i_a                               ;
-    reg  [8  - 1 : 0]    data_q_a                               ;    
+    reg  [8  - 1 : 0]    data_q_a                               ;     
+
+    reg s_in_phase_r    ;
+    reg s_quadrature_r  ;
+    reg s_in_phase_a    ;
+    reg s_quadrature_a  ;
 
     assign o_phase_error = r_phase_error;
 
@@ -112,16 +117,32 @@ module phase_detector #(
     end
 
     // Converted phase
+    always @(posedge i_clock or negedge i_rst_n ) begin
+        if (!i_rst_n) begin
+            s_in_phase_r     <= 0;
+            s_quadrature_r   <= 0;
+            s_in_phase_a     <= 0;
+            s_quadrature_a   <= 0;
+        end 
+        else begin
+            s_in_phase_r     <= i_in_phase[NB_IN_PD - 1];
+            s_quadrature_r   <= i_quadrature[NB_IN_PD - 1];
+            s_in_phase_a     <= in_phase_a[NB_IN_PD - 1];
+            s_quadrature_a   <= quadrature_a[NB_IN_PD - 1];
+        end
+    end
+
+
     always @(*) begin
-        if(i_in_phase[NB_IN_PD - 1] && !i_quadrature[NB_IN_PD - 1]) begin
+        if(s_in_phase_r && !s_quadrature_r) begin
             phase_r_converted = PI_10_7 - $signed({1'b0,phase_r_h});
         end
         
-        else if(i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
+        else if(s_in_phase_r && s_quadrature_r) begin
             phase_r_converted = $signed(~(PI_10_7 - $signed({1'b0,phase_r_h}) ) + 1);
         end
         
-        else if(!i_in_phase[NB_IN_PD - 1] && i_quadrature[NB_IN_PD - 1]) begin
+        else if(!s_in_phase_r && s_quadrature_r) begin
             phase_r_converted = $signed(~phase_r_h + 1) ;
         end
 
@@ -132,15 +153,15 @@ module phase_detector #(
     end
 
     always @(*) begin
-        if(in_phase_a[NB_IN_PD - 1] && !quadrature_a[NB_IN_PD - 1]) begin
+        if(s_in_phase_a && !s_quadrature_a) begin
             phase_a_converted = PI_10_7 - $signed({1'b0,phase_a_h});
         end
         
-        else if(in_phase_a[NB_IN_PD - 1] && quadrature_a[NB_IN_PD - 1]) begin
+        else if(s_in_phase_a && s_quadrature_a) begin
             phase_a_converted = $signed(~(PI_10_7 - $signed({1'b0,phase_a_h}) ) + 1);
         end
         
-        else if(!in_phase_a[NB_IN_PD - 1] && quadrature_a[NB_IN_PD - 1]) begin
+        else if(!s_in_phase_a && s_quadrature_a) begin
             phase_a_converted = $signed(~phase_a_h + 1) ;
         end
 
@@ -227,26 +248,6 @@ module phase_detector #(
         .i_rst_n    (i_rst_n)
     );
 
-    lut_atan_only #(
-        .NB_DATA_INDEX  (14),
-        .NB_DATA_OUT    (8)    
-    ) u_lut_a (
-        .o_atan     (phase_a_h_debug),
-        .i_index    (index_a),
-        .i_clock    (i_clock),
-        .i_rst_n    (i_rst_n)
-    );
-
-    lut_atan_only #(
-        .NB_DATA_INDEX  (14),
-        .NB_DATA_OUT    (8)    
-    ) u_lut_r (
-        .o_atan     (phase_r_h_debug),
-        .i_index    (index_r),
-        .i_clock    (i_clock),
-        .i_rst_n    (i_rst_n)
-    );
-    
 `endif 
 
 
