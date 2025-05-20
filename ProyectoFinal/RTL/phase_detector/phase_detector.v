@@ -2,6 +2,8 @@
 // `define HALF_LUT
 `define HALF_LUT_RAM
 
+// `define SYNTH
+
 module phase_detector #(
     parameter NB_IN_PD    = 8     ,
     parameter NBF_IN_PD   = 7     ,
@@ -60,7 +62,6 @@ module phase_detector #(
         else begin
             o_phase_error <= r_phase_error;        
         end
-
     end
 
 
@@ -236,25 +237,52 @@ module phase_detector #(
 
 `elsif HALF_LUT_RAM
 
-    lut_atan_ram #(
-        .NB_DATA_INDEX  (14),
-        .NB_DATA_OUT    (8)    
-    ) u_lut_a_ram (
-        .o_atan     (phase_a_h),
-        .i_index    (index_a),
-        .i_clock    (i_clock),
-        .i_rst_n    (i_rst_n)
-    );
+    `ifdef SYNTH
+        blk_mem_gen_0 your_rom (
+            .clka    (i_clock),
+            .addra   (index_r),
+            .douta   (phase_r_h)
+        );
 
-    lut_atan_ram #(
-        .NB_DATA_INDEX  (14),
-        .NB_DATA_OUT    (8)    
-    ) u_lut_r_ram (
-        .o_atan     (phase_r_h),
-        .i_index    (index_r),
-        .i_clock    (i_clock),
-        .i_rst_n    (i_rst_n)
-    );
+        lut_atan_ram #(
+            .NB_DATA_INDEX  (14),
+            .NB_DATA_OUT    (8)    
+        ) u_lut_a_ram (
+            .o_atan     (phase_a_h),
+            .i_index    (index_a),
+            .i_clock    (i_clock),
+            .i_rst_n    (i_rst_n)
+        );
+
+    `else
+        ram_atan u_ram_r(
+        .clka(i_clock), 
+        .ena(i_rst_n), 
+        .addra(index_r),
+        .douta(phase_r_h_debug)
+        );
+            
+        lut_atan_ram #(
+            .NB_DATA_INDEX  (14),
+            .NB_DATA_OUT    (8)    
+        ) u_lut_a_ram (
+            .o_atan     (phase_a_h),
+            .i_index    (index_a),
+            .i_clock    (i_clock),
+            .i_rst_n    (i_rst_n)
+        );
+
+        lut_atan_ram #(
+            .NB_DATA_INDEX  (14),
+            .NB_DATA_OUT    (8)    
+        ) u_lut_r_ram (
+            .o_atan     (phase_r_h),
+            .i_index    (index_r),
+            .i_clock    (i_clock),
+            .i_rst_n    (i_rst_n)
+        );
+    `endif
+    
 
 `endif 
 

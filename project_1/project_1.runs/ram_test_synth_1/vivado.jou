@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Tue May 20 08:35:04 2025
+# Process ID: 13752
+# Current directory: C:/Maestria/DDA-2025/project_1/project_1.runs/ram_test_synth_1
+# Command line: vivado.exe -log ram_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_test.tcl
+# Log file: C:/Maestria/DDA-2025/project_1/project_1.runs/ram_test_synth_1/ram_test.vds
+# Journal file: C:/Maestria/DDA-2025/project_1/project_1.runs/ram_test_synth_1\vivado.jou
+# Running On: IgnachPC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17088 MB
+#-----------------------------------------------------------
+source ram_test.tcl -notrace

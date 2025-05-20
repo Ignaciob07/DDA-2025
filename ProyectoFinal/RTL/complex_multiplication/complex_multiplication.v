@@ -6,14 +6,14 @@ module complex_multiplication #(
     parameter NB_IN_ESTIMATED_PHASE    = 9,
     parameter NBF_IN_ESTIMATED_PHASE   = 7  
 )(
-    output signed [NB_OUT_CARRIER_RECOVERY - 1 : 0] o_data_i            ,
-    output signed [NB_OUT_CARRIER_RECOVERY - 1 : 0] o_data_q            ,
-    input  signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_i            ,
-    input  signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_q            ,
-    input  signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_cos          ,
-    input  signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_sin          ,
-    input                                           i_clock             ,
-    input                                           i_rst_n         
+    output  signed [NB_OUT_CARRIER_RECOVERY - 1 : 0] o_data_i            ,
+    output  signed [NB_OUT_CARRIER_RECOVERY - 1 : 0] o_data_q            ,
+    input      signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_i            ,
+    input      signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_q            ,
+    input      signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_cos          ,
+    input      signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_sin          ,
+    input                                               i_clock             ,
+    input                                               i_rst_n         
 );
 
 localparam NB_FULL_RES_MUL  = NB_IN_CARRIER_RECOVERY  + NB_IN_ESTIMATED_PHASE ;
@@ -43,6 +43,19 @@ end
 
     assign o_data_i = mul_out_i_rnd_cos + mul_out_q_rnd_sin;
     assign o_data_q = mul_out_q_rnd_cos - mul_out_i_rnd_sin;
+
+// always @(posedge i_clock or negedge i_rst_n) begin
+//     if (!i_rst_n) begin
+//         o_data_i <= 0;
+//         o_data_q <= 0;
+//     end
+//     else begin
+//         o_data_i <= mul_out_i_rnd_cos + mul_out_q_rnd_sin;
+//         o_data_q <= mul_out_q_rnd_cos - mul_out_i_rnd_sin;
+//     end
+// end
+
+
 
 rounding #(
     .NB_IN  (NB_FULL_RES_MUL ),  
