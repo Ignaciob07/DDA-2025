@@ -1,4 +1,4 @@
-// `define ROUNDING
+`define ROUNDING
 
 module loop_filter #(
 

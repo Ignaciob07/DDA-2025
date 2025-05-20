@@ -8,11 +8,11 @@ module phase_detector #(
     parameter NB_OUT_PD   = 11    ,
     parameter NBF_OUT_PD  = 7
 ) (
-    output  signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
-    input   signed  [NB_IN_PD  - 1 : 0]     i_in_phase     ,
-    input   signed  [NB_IN_PD  - 1 : 0]     i_quadrature   ,
-    input                                   i_clock        ,
-    input                                   i_rst_n
+    output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+    input      signed  [NB_IN_PD  - 1 : 0]     i_in_phase     ,
+    input      signed  [NB_IN_PD  - 1 : 0]     i_quadrature   ,
+    input                                      i_clock        ,
+    input                                      i_rst_n
 );
 
     // Define Pi in U10.7
@@ -53,7 +53,15 @@ module phase_detector #(
     reg s_in_phase_a    ;
     reg s_quadrature_a  ;
 
-    assign o_phase_error = r_phase_error;
+    always @(posedge i_clock or negedge i_rst_n) begin
+        if (!i_rst_n) begin
+            o_phase_error <= 0;
+        end
+        else begin
+            o_phase_error <= r_phase_error;        
+        end
+
+    end
 
 
     // compute of output phase error
