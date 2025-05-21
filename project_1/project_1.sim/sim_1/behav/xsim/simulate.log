@@ -1,0 +1,5 @@
+Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module simulation.dut.u_ram.inst.\native_mem_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 70 ns : File "C:/Maestria/DDA-2025/project_1/project_1.srcs/sim_1/new/simulation.v" Line 50

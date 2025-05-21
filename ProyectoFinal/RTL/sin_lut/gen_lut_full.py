@@ -3,18 +3,16 @@ import math
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_file = os.path.join(script_dir, "lut_sin.v")
-output_file_hex = os.path.join(script_dir, "lut_sin.mem")
+output_file = os.path.join(script_dir, "lut_sin_full.v")
+output_file_hex = os.path.join(script_dir, "lut_sin_full.mem")
 
-NB_LUT_IN  = 8
+NB_LUT_IN  = 11
 NF_LUT_IN  = 7
 
-NB_LUT_OUT = 8
+NB_LUT_OUT = 9
 NF_LUT_OUT = 7
 
-EXCESS       = ((1+1-2**-7) - 1.5703125) * 2**7 # max value - pi/2 to int
-LEN_LUT = 2**(NB_LUT_IN) - EXCESS
-LEN_LUT = int(LEN_LUT)
+LEN_LUT = 2**(NB_LUT_IN)
 
 
 with open(output_file, "w") as f, open(output_file_hex, "w") as f_hex:
@@ -44,11 +42,17 @@ with open(output_file, "w") as f, open(output_file_hex, "w") as f_hex:
     f.write("    always @(posedge i_clock or negedge i_rst_n) begin\n")
     f.write("        if (!i_rst_n) begin\n")
     
-    
-    for i in range(LEN_LUT):        # 0 to pi/2  
+    diff = 0
+    x=0
+    for i in range(LEN_LUT):         
+        if i >= 2**(NB_LUT_IN-1):
+            x = -(i - diff)
+            diff = diff + 2 
         i_rep = (i)/2**7 # 1 to 127 -> 1/2**7 (0.0078125) to 127/2**7 (0.9921875)                        
         sin = math.sin(i_rep)
         sin_fxp = round(sin*2**NF_LUT_OUT)
+        if sin_fxp <0:
+            sin_fxp = (1 << 9) + sin_fxp
         f.write(f"          lut[{i}] <= {NB_LUT_OUT}'d{sin_fxp};\n")
         f_hex.write(f"{format(sin_fxp, '08b')}\n")
         

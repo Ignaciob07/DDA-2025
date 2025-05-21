@@ -4,13 +4,19 @@
 
 // `define SYNTH
 
+// `define COMB_OUT
+
 module phase_detector #(
     parameter NB_IN_PD    = 8     ,
     parameter NBF_IN_PD   = 7     ,
     parameter NB_OUT_PD   = 11    ,
     parameter NBF_OUT_PD  = 7
 ) (
-    output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+`ifdef COMB_OUT
+output signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+`else
+output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+`endif
     input      signed  [NB_IN_PD  - 1 : 0]     i_in_phase     ,
     input      signed  [NB_IN_PD  - 1 : 0]     i_quadrature   ,
     input                                      i_clock        ,
@@ -55,6 +61,9 @@ module phase_detector #(
     reg s_in_phase_a    ;
     reg s_quadrature_a  ;
 
+`ifdef COMB_OUT
+    assign o_phase_error = r_phase_error;        
+`else
     always @(posedge i_clock or negedge i_rst_n) begin
         if (!i_rst_n) begin
             o_phase_error <= 0;
@@ -63,7 +72,7 @@ module phase_detector #(
             o_phase_error <= r_phase_error;        
         end
     end
-
+`endif
 
     // compute of output phase error
     always @(*)begin
@@ -259,28 +268,35 @@ module phase_detector #(
         .clka(i_clock), 
         .ena(i_rst_n), 
         .addra(index_r),
-        .douta(phase_r_h_debug)
-        );
-            
-        lut_atan_ram #(
-            .NB_DATA_INDEX  (14),
-            .NB_DATA_OUT    (8)    
-        ) u_lut_a_ram (
-            .o_atan     (phase_a_h),
-            .i_index    (index_a),
-            .i_clock    (i_clock),
-            .i_rst_n    (i_rst_n)
+        .douta(phase_r_h)
         );
 
-        lut_atan_ram #(
-            .NB_DATA_INDEX  (14),
-            .NB_DATA_OUT    (8)    
-        ) u_lut_r_ram (
-            .o_atan     (phase_r_h),
-            .i_index    (index_r),
-            .i_clock    (i_clock),
-            .i_rst_n    (i_rst_n)
+        ram_atan u_ram_a(
+        .clka(i_clock), 
+        .ena(i_rst_n), 
+        .addra(index_a),
+        .douta(phase_a_h)
         );
+            
+        // lut_atan_ram #(
+        //     .NB_DATA_INDEX  (14),
+        //     .NB_DATA_OUT    (8)    
+        // ) u_lut_a_ram (
+        //     .o_atan     (phase_a_h),
+        //     .i_index    (index_a),
+        //     .i_clock    (i_clock),
+        //     .i_rst_n    (i_rst_n)
+        // );
+
+        // lut_atan_ram #(
+        //     .NB_DATA_INDEX  (14),
+        //     .NB_DATA_OUT    (8)    
+        // ) u_lut_r_ram (
+        //     .o_atan     (phase_r_h),
+        //     .i_index    (index_r),
+        //     .i_clock    (i_clock),
+        //     .i_rst_n    (i_rst_n)
+        // );
     `endif
     
 
