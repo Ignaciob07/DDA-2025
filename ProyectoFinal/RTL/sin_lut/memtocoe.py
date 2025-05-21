@@ -10,4 +10,4 @@ def mem_to_coe(mem_path, coe_path):
             end = ',' if i < len(lines) - 1 else ';'
             f.write(f"{line}{end}\n")
 
-mem_to_coe("DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.mem", "DDA-2025/ProyectoFinal/RTL/sin_lut/sin_lut.coe")
+mem_to_coe("DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin_full.mem", "DDA-2025/ProyectoFinal/RTL/sin_lut/sin_lut_full.coe")

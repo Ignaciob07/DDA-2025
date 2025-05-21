@@ -1,0 +1,7 @@
+verilog xil_defaultlib  \
+"../../../../carrier_recovery.gen/sources_1/ip/ram_sin/sim/ram_sin.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

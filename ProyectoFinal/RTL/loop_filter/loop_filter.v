@@ -44,7 +44,7 @@ module loop_filter #(
     wire signed [NB_K : 0] w_ki;
     wire signed [NB_K : 0] w_kp;
 
-    assign w_ki = {1'b0, ki[13 -: NB_K]};
+    assign w_ki = 8'd6;
     assign w_kp = 8'd64;
 
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_proportional    ;

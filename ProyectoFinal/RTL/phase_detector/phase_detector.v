@@ -4,7 +4,7 @@
 
 // `define SYNTH
 
-// `define COMB_OUT
+`define COMB_OUT
 
 module phase_detector #(
     parameter NB_IN_PD    = 8     ,

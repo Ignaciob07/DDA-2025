@@ -11,19 +11,23 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,936.341 ns"></ZoomEndTime>
-      <Cursor1Time time="1,125.000 ns"></Cursor1Time>
+      <ZoomStartTime time="288.192 ns"></ZoomStartTime>
+      <ZoomEndTime time="444.438 ns"></ZoomEndTime>
+      <Cursor1Time time="100,005.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="244"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="363"></NameColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="66" />
+   <WVObjectSize size="52" />
+   <wvobject fp_name="/carrier_recovery_tb/i_rst_n" type="logic">
+      <obj_property name="ElementShortName">i_rst_n</obj_property>
+      <obj_property name="ObjectShortName">i_rst_n</obj_property>
+   </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/i_data_i" type="array">
       <obj_property name="ElementShortName">i_data_i[7:0]</obj_property>
       <obj_property name="ObjectShortName">i_data_i[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
       <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
@@ -31,7 +35,7 @@
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/i_data_q" type="array">
       <obj_property name="ElementShortName">i_data_q[7:0]</obj_property>
       <obj_property name="ObjectShortName">i_data_q[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
       <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
@@ -39,98 +43,18 @@
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/data_cos" type="array">
       <obj_property name="ElementShortName">data_cos[8:0]</obj_property>
       <obj_property name="ObjectShortName">data_cos[8:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/data_sin" type="array">
       <obj_property name="ElementShortName">data_sin[8:0]</obj_property>
       <obj_property name="ObjectShortName">data_sin[8:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_i_cos_full_res" type="array">
-      <obj_property name="ElementShortName">mul_out_i_cos_full_res[16:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_i_cos_full_res[16:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_i_rnd_cos" type="array">
-      <obj_property name="ElementShortName">mul_out_i_rnd_cos[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_i_rnd_cos[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_i_sin_full_res" type="array">
-      <obj_property name="ElementShortName">mul_out_i_sin_full_res[16:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_i_sin_full_res[16:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_i_rnd_sin" type="array">
-      <obj_property name="ElementShortName">mul_out_i_rnd_sin[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_i_rnd_sin[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_q_sin_full_res" type="array">
-      <obj_property name="ElementShortName">mul_out_q_sin_full_res[16:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_q_sin_full_res[16:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_q_rnd_sin" type="array">
-      <obj_property name="ElementShortName">mul_out_q_rnd_sin[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_q_rnd_sin[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_q_cos_full_res" type="array">
-      <obj_property name="ElementShortName">mul_out_q_cos_full_res[16:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_q_cos_full_res[16:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/mul_out_q_rnd_cos" type="array">
-      <obj_property name="ElementShortName">mul_out_q_rnd_cos[7:0]</obj_property>
-      <obj_property name="ObjectShortName">mul_out_q_rnd_cos[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/o_data_i" type="array">
       <obj_property name="ElementShortName">o_data_i[7:0]</obj_property>
       <obj_property name="ObjectShortName">o_data_i[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_complex_mul/o_data_q" type="array">
       <obj_property name="ElementShortName">o_data_q[7:0]</obj_property>
       <obj_property name="ObjectShortName">o_data_q[7:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider65">
    </wvobject>
@@ -200,52 +124,23 @@
       <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_r_h" type="array">
-      <obj_property name="ElementShortName">phase_r_h[8:0]</obj_property>
-      <obj_property name="ObjectShortName">phase_r_h[8:0]</obj_property>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/index_r" type="array">
+      <obj_property name="ElementShortName">index_r[13:0]</obj_property>
+      <obj_property name="ObjectShortName">index_r[13:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/index_a" type="array">
+      <obj_property name="ElementShortName">index_a[13:0]</obj_property>
+      <obj_property name="ObjectShortName">index_a[13:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_r_converted" type="array">
       <obj_property name="ElementShortName">phase_r_converted[10:0]</obj_property>
       <obj_property name="ObjectShortName">phase_r_converted[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_r" type="array">
-      <obj_property name="ElementShortName">phase_r[10:0]</obj_property>
-      <obj_property name="ObjectShortName">phase_r[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_a_h" type="array">
-      <obj_property name="ElementShortName">phase_a_h[8:0]</obj_property>
-      <obj_property name="ObjectShortName">phase_a_h[8:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_a_converted" type="array">
       <obj_property name="ElementShortName">phase_a_converted[10:0]</obj_property>
       <obj_property name="ObjectShortName">phase_a_converted[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_a" type="array">
-      <obj_property name="ElementShortName">phase_a[10:0]</obj_property>
-      <obj_property name="ObjectShortName">phase_a[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/r_phase_error" type="array">
-      <obj_property name="ElementShortName">r_phase_error[10:0]</obj_property>
-      <obj_property name="ObjectShortName">r_phase_error[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/phase_detector_out" type="array">
       <obj_property name="ElementShortName">phase_detector_out[10:0]</obj_property>
@@ -255,37 +150,24 @@
       <obj_property name="radix_fractionWidth">14</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="AnalogYRangeMin">-57</obj_property>
-      <obj_property name="AnalogYRRangeMax">-6</obj_property>
+      <obj_property name="AnalogYRangeMin">-108</obj_property>
+      <obj_property name="AnalogYRRangeMax">-67</obj_property>
       <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
       <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
       <obj_property name="AnalogHorizLine">0.000000</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject type="divider" fp_name="divider65">
-      <obj_property name="label">LUT H</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_r_h" type="array">
+      <obj_property name="ElementShortName">phase_r_h[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_r_h[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/u_lut_r/o_atan" type="array">
-      <obj_property name="ElementShortName">o_atan[8:0]</obj_property>
-      <obj_property name="ObjectShortName">o_atan[8:0]</obj_property>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_r_h_debug" type="array">
+      <obj_property name="ElementShortName">phase_r_h_debug[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_r_h_debug[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/u_lut_r/i_index" type="array">
-      <obj_property name="ElementShortName">i_index[13:0]</obj_property>
-      <obj_property name="ObjectShortName">i_index[13:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/u_lut_r/i_clock" type="logic">
-      <obj_property name="ElementShortName">i_clock</obj_property>
-      <obj_property name="ObjectShortName">i_clock</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/u_lut_r/i_rst_n" type="logic">
-      <obj_property name="ElementShortName">i_rst_n</obj_property>
-      <obj_property name="ObjectShortName">i_rst_n</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/u_lut_r/r_atan" type="array">
-      <obj_property name="ElementShortName">r_atan[8:0]</obj_property>
-      <obj_property name="ObjectShortName">r_atan[8:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_phase_detector/phase_a_h" type="array">
+      <obj_property name="ElementShortName">phase_a_h[7:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_a_h[7:0]</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider65">
       <obj_property name="label">loop filter</obj_property>
@@ -341,6 +223,8 @@
       <obj_property name="ElementShortName">r_accumulator_i[10:0]</obj_property>
       <obj_property name="ObjectShortName">r_accumulator_i[10:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_loop_filter/sum_pi" type="array">
       <obj_property name="ElementShortName">sum_pi[11:0]</obj_property>
@@ -349,8 +233,7 @@
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
       <obj_property name="radix_fractionWidth">14</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider65">
       <obj_property name="label">vco</obj_property>
@@ -359,32 +242,57 @@
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/i_phase" type="array">
       <obj_property name="ElementShortName">i_phase[10:0]</obj_property>
       <obj_property name="ObjectShortName">i_phase[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/sum_i_accum" type="array">
       <obj_property name="ElementShortName">sum_i_accum[11:0]</obj_property>
       <obj_property name="ObjectShortName">sum_i_accum[11:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/sum_i_converted" type="array">
       <obj_property name="ElementShortName">sum_i_converted[10:0]</obj_property>
       <obj_property name="ObjectShortName">sum_i_converted[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/r_accumulator_i" type="array">
       <obj_property name="ElementShortName">r_accumulator_i[10:0]</obj_property>
       <obj_property name="ObjectShortName">r_accumulator_i[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/o_phase" type="array">
       <obj_property name="ElementShortName">o_phase[10:0]</obj_property>
       <obj_property name="ObjectShortName">o_phase[10:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">14</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="AnalogYRangeMin">-7.94884</obj_property>
+      <obj_property name="AnalogYRRangeMax">-2.49045</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_vco/double_pi" type="array">
+      <obj_property name="ElementShortName">double_pi[10:0]</obj_property>
+      <obj_property name="ObjectShortName">double_pi[10:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider65">
       <obj_property name="label">sin calc</obj_property>
@@ -398,34 +306,13 @@
       <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
    </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/in_pos" type="array">
-      <obj_property name="ElementShortName">in_pos[10:0]</obj_property>
-      <obj_property name="ObjectShortName">in_pos[10:0]</obj_property>
-      <obj_property name="Radix">REALRADIX</obj_property>
-      <obj_property name="radix_realType">UNSIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">7</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/in_pos_trunc" type="array">
-      <obj_property name="ElementShortName">in_pos_trunc[10:0]</obj_property>
-      <obj_property name="ObjectShortName">in_pos_trunc[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/in_converted_offset" type="array">
-      <obj_property name="ElementShortName">in_converted_offset[8:0]</obj_property>
-      <obj_property name="ObjectShortName">in_converted_offset[8:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/sin_lut" type="array">
       <obj_property name="ElementShortName">sin_lut[8:0]</obj_property>
       <obj_property name="ObjectShortName">sin_lut[8:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/sin_signed" type="array">
-      <obj_property name="ElementShortName">sin_signed[8:0]</obj_property>
-      <obj_property name="ObjectShortName">sin_signed[8:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/r_sin" type="array">
-      <obj_property name="ElementShortName">r_sin[8:0]</obj_property>
-      <obj_property name="ObjectShortName">r_sin[8:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_sin_calc/sin_lut_debug" type="array">
+      <obj_property name="ElementShortName">sin_lut_debug[8:0]</obj_property>
+      <obj_property name="ObjectShortName">sin_lut_debug[8:0]</obj_property>
    </wvobject>
    <wvobject type="divider" fp_name="divider65">
       <obj_property name="label">cos calc</obj_property>
@@ -446,5 +333,13 @@
       <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
       <obj_property name="radix_fractionWidth">7</obj_property>
       <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_cos_calc/u_sin_calc/sin_lut_debug" type="array">
+      <obj_property name="ElementShortName">sin_lut_debug[8:0]</obj_property>
+      <obj_property name="ObjectShortName">sin_lut_debug[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/carrier_recovery_tb/u_carrier_recovery/u_cos_calc/u_sin_calc/sin_lut" type="array">
+      <obj_property name="ElementShortName">sin_lut[8:0]</obj_property>
+      <obj_property name="ObjectShortName">sin_lut[8:0]</obj_property>
    </wvobject>
 </wave_config>

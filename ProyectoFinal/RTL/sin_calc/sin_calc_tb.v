@@ -1,8 +1,8 @@
 `timescale 1ps/1ps
 
 module sin_calc_tb ();
-    parameter NB_DATA_IN    = 18;
-    parameter NBF_DATA_IN   = 14;
+    parameter NB_DATA_IN    = 11;
+    parameter NBF_DATA_IN   = 9;
     parameter NB_DATA_OUT   = 9 ; 
     parameter NBF_DATA_OUT  = 7 ;
 
@@ -26,7 +26,7 @@ module sin_calc_tb ();
 
         @(posedge i_clock);
 
-        for (i_data = -102944; i_data < 102944; i_data = i_data + 1) begin
+        for (i_data = -804; i_data < 8044; i_data = i_data + 1) begin
             @(posedge i_clock);
         end
 

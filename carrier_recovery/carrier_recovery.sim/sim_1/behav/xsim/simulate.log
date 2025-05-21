@@ -1,3 +1,15 @@
 Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module carrier_recovery_tb.u_carrier_recovery.u_phase_detector.u_ram_r.inst.\native_mem_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module carrier_recovery_tb.u_carrier_recovery.u_phase_detector.u_ram_a.inst.\native_mem_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module carrier_recovery_tb.u_carrier_recovery.u_cos_calc.u_sin_calc.u_ram_r.inst.\native_mem_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module carrier_recovery_tb.u_carrier_recovery.u_sin_calc.u_ram_r.inst.\native_mem_module.blk_mem_gen_v8_4_6_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
 TEST PASSED
 $finish called at time : 100005 ns : File "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery_tb.v" Line 130
