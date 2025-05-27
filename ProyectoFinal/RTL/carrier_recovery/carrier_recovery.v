@@ -79,9 +79,7 @@ complex_multiplication #(
     .i_data_i   (i_data_i),
     .i_data_q   (i_data_q),
     .i_data_cos (data_cos),
-    .i_data_sin (data_sin),
-    .i_clock    (i_clock),
-    .i_rst_n    (i_rst_n)
+    .i_data_sin (data_sin)
 );
 
 phase_detector #(

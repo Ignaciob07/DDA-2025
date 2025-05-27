@@ -11,9 +11,7 @@ module complex_multiplication #(
     input      signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_i            ,
     input      signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_q            ,
     input      signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_cos          ,
-    input      signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_sin          ,
-    input                                               i_clock             ,
-    input                                               i_rst_n         
+    input      signed [NB_IN_ESTIMATED_PHASE   - 1 : 0] i_data_sin          
 );
 
 localparam NB_FULL_RES_MUL  = NB_IN_CARRIER_RECOVERY  + NB_IN_ESTIMATED_PHASE ;

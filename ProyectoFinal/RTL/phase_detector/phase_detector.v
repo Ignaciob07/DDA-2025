@@ -43,8 +43,6 @@ output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
         reg signed [NB_OUT_PD       - 1 : 0] phase_r_converted  ; // converted phase from -pi to pi
         reg signed [NB_OUT_PD       - 1 : 0] phase_a_converted  ; // converted phase from -pi to pi
 
-        wire        [NB_OUT_PD_HALF - 1 : 0] phase_r_h_debug          ; // phase for half lut (0 to pi/2)
-        wire        [NB_OUT_PD_HALF - 1 : 0] phase_a_h_debug          ; // phase for half lut (0 to pi/2)
     `endif
 
     reg signed [NB_OUT_PD       - 1 : 0] r_phase_error          ; // output phase error
@@ -246,24 +244,6 @@ output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
 
 `elsif HALF_LUT_RAM
 
-    `ifdef SYNTH
-        blk_mem_gen_0 your_rom (
-            .clka    (i_clock),
-            .addra   (index_r),
-            .douta   (phase_r_h)
-        );
-
-        lut_atan_ram #(
-            .NB_DATA_INDEX  (14),
-            .NB_DATA_OUT    (8)    
-        ) u_lut_a_ram (
-            .o_atan     (phase_a_h),
-            .i_index    (index_a),
-            .i_clock    (i_clock),
-            .i_rst_n    (i_rst_n)
-        );
-
-    `else
         ram_atan u_ram_r(
         .clka(i_clock), 
         .ena(i_rst_n), 
@@ -277,27 +257,6 @@ output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
         .addra(index_a),
         .douta(phase_a_h)
         );
-            
-        // lut_atan_ram #(
-        //     .NB_DATA_INDEX  (14),
-        //     .NB_DATA_OUT    (8)    
-        // ) u_lut_a_ram (
-        //     .o_atan     (phase_a_h),
-        //     .i_index    (index_a),
-        //     .i_clock    (i_clock),
-        //     .i_rst_n    (i_rst_n)
-        // );
-
-        // lut_atan_ram #(
-        //     .NB_DATA_INDEX  (14),
-        //     .NB_DATA_OUT    (8)    
-        // ) u_lut_r_ram (
-        //     .o_atan     (phase_r_h),
-        //     .i_index    (index_r),
-        //     .i_clock    (i_clock),
-        //     .i_rst_n    (i_rst_n)
-        // );
-    `endif
     
 
 `endif 
