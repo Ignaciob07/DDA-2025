@@ -1,4 +1,5 @@
 `define ROUNDING
+// `define COMB_OUT
 
 module loop_filter #(
 
@@ -10,7 +11,11 @@ module loop_filter #(
 
 ) (
 
-    output  signed [NB_PHASE_OUT     - 1 : 0]  o_phase,
+`ifdef COMB_OUT
+    output signed [NB_PHASE_OUT     - 1 : 0]  o_phase,
+`else
+    output reg signed [NB_PHASE_OUT     - 1 : 0]  o_phase,
+`endif
     input   signed [NB_PHASE_IN      - 1 : 0]  i_phase,
     input                                      i_clock,
     input                                      i_rst_n    
@@ -35,7 +40,7 @@ module loop_filter #(
 
     localparam signed TPI       = 18'd102944     ; //   pi * 2
     wire signed [NB_PHASE_IN  - 1 : 0] double_pi ;
-    assign double_pi = TPI[18 - 1 -: NB_PHASE_IN]    ;
+    assign double_pi = TPI[17 -: NB_PHASE_IN]    ;
 
     // PROP AND INTEG CONSTANTS
     localparam ki               = 14'd819          ; // 14 fractional bits
@@ -44,8 +49,8 @@ module loop_filter #(
     wire signed [NB_K : 0] w_ki;
     wire signed [NB_K : 0] w_kp;
 
-    assign w_ki = ki[14 - 1 -: NBF_PHASE_IN];
-    assign w_kp = kp[14 - 1 -: NBF_PHASE_IN];
+    assign w_ki = 8'd6;
+    assign w_kp = 8'd64;
 
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_proportional    ;
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_integrative     ;
@@ -61,8 +66,8 @@ module loop_filter #(
     // multiplication
     always @(*) begin
         
-        mul_proportional = $signed(i_phase) * $signed({1'b0,w_kp});
-        mul_integrative  = $signed(i_phase) * $signed({1'b0,w_ki});
+        mul_proportional = $signed(i_phase) * w_kp;
+        mul_integrative  = $signed(i_phase) * w_ki;
         
         // sum integrative acummultor
         sum_i_accum = r_accumulator_i + mul_integrative_ts;
@@ -81,7 +86,19 @@ module loop_filter #(
         
     end
 
+
+`ifdef COMB_OUT
     assign o_phase = sum_pi; 
+`else
+    always @(posedge i_clock or negedge i_rst_n) begin
+        if (!i_rst_n) begin
+            o_phase <= 0;
+        end
+        else begin
+            o_phase <= sum_pi;        
+        end
+    end
+`endif
 
     always @(posedge i_clock or negedge i_rst_n) begin
         if (!i_rst_n) begin

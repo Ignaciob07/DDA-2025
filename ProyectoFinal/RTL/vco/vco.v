@@ -1,3 +1,5 @@
+// `define COMB_OUT
+
 module vco #(
 
     parameter NB_PHASE_IN       = 18,
@@ -21,7 +23,7 @@ localparam NBF_SUM_ACC      = NBF_PHASE_IN   ;
 
 localparam signed TPI       = 18'd102944     ; //   pi * 2
 wire signed [NB_PHASE_IN  - 1 : 0] double_pi          ;
-assign double_pi = TPI[18 - 1 -: NB_PHASE_IN];
+assign double_pi = TPI[17 -: NB_PHASE_IN];
 
 reg  signed [NB_SUM_ACC        - 1 : 0] sum_i_accum; // S(19,14)
 reg  signed [NB_PHASE_IN       - 1 : 0] sum_i_converted     ; // S(18,14) if phase > 360° or phase < -360° +- 360
@@ -42,19 +44,32 @@ always @(*) begin
     end
      
 end
-
-always @(posedge i_clock or negedge i_rst_n) begin
-    if (!i_rst_n) begin
-        r_accumulator_i <= 0;
-        r_vco <= 0;
-    end 
-    else begin        
-        r_accumulator_i <= sum_i_converted;
-        r_vco <= sum_i_converted;
-
+`ifdef COMB_OUT
+    always @(posedge i_clock or negedge i_rst_n) begin
+        if (!i_rst_n) begin
+            r_accumulator_i <= 0;
+        end 
+        else begin        
+            r_accumulator_i <= sum_i_converted;
+        end
     end
-end
 
-assign o_phase = r_vco;
+    assign o_phase = sum_i_converted; 
+`else
+    always @(posedge i_clock or negedge i_rst_n) begin
+        if (!i_rst_n) begin
+            r_accumulator_i <= 0;
+            r_vco <= 0;
+        end 
+        else begin        
+            r_accumulator_i <= sum_i_converted;
+            r_vco <= sum_i_converted;
+
+        end
+    end
+
+    assign o_phase = r_vco;
+`endif
+
 
 endmodule

@@ -2,19 +2,20 @@
 // `define HALF_LUT
 `define HALF_LUT_RAM
 
+// `define SYNTH
 
 `define COMB_OUT
 
 module phase_detector #(
     parameter NB_IN_PD    = 8     ,
     parameter NBF_IN_PD   = 7     ,
-    parameter NB_OUT_PD   = 18    ,
-    parameter NBF_OUT_PD  = 14
+    parameter NB_OUT_PD   = 11    ,
+    parameter NBF_OUT_PD  = 7
 ) (
 `ifdef COMB_OUT
-    output signed      [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+output signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
 `else
-    output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
+output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
 `endif
     input      signed  [NB_IN_PD  - 1 : 0]     i_in_phase     ,
     input      signed  [NB_IN_PD  - 1 : 0]     i_quadrature   ,
@@ -22,13 +23,12 @@ module phase_detector #(
     input                                      i_rst_n
 );
 
-    // Define Pi in U10.7 U(frac + 3).frac
-    localparam PI_17_14  = 17'd51472                   ;
+    // Define Pi in U10.7
+    localparam HALF_PI_10_7 = 10'd201;
+    localparam PI_10_7  = 10'd402                   ;
 
     // depends on the resolution of the lut
-    localparam NB_OUT_PD_HALF  = NBF_OUT_PD + 1      ;
-
-    localparam NB_INDEX  = NBF_IN_PD + NBF_IN_PD      ;
+    localparam NB_OUT_PD_HALF  = NB_OUT_PD - 3      ;
 
     // Decided simbols
     wire [NB_IN_PD  - 1 : 0] in_phase_a         ;
@@ -38,8 +38,8 @@ module phase_detector #(
         wire signed [NB_OUT_PD      - 1 : 0] phase_r            ; // phase for full lut
         wire signed [NB_OUT_PD      - 1 : 0] phase_a            ; // phase for full lut
     `else 
-        wire       [NB_OUT_PD_HALF  - 1 : 0] phase_r_h          ; // phase for half lut (0 to pi/2)
-        wire       [NB_OUT_PD_HALF  - 1 : 0] phase_a_h          ; // phase for half lut (0 to pi/2)
+        wire        [NB_OUT_PD_HALF - 1 : 0] phase_r_h          ; // phase for half lut (0 to pi/2)
+        wire        [NB_OUT_PD_HALF - 1 : 0] phase_a_h          ; // phase for half lut (0 to pi/2)
         reg signed [NB_OUT_PD       - 1 : 0] phase_r_converted  ; // converted phase from -pi to pi
         reg signed [NB_OUT_PD       - 1 : 0] phase_a_converted  ; // converted phase from -pi to pi
 
@@ -47,14 +47,14 @@ module phase_detector #(
         wire        [NB_OUT_PD_HALF - 1 : 0] phase_a_h_debug          ; // phase for half lut (0 to pi/2)
     `endif
 
-    reg signed [NB_OUT_PD       - 1 : 0]    r_phase_error          ; // output phase error
+    reg signed [NB_OUT_PD       - 1 : 0] r_phase_error          ; // output phase error
 
-    reg  [NB_INDEX  - 1 : 0]                index_r                                ; // index to access lut
-    reg  [NB_IN_PD  - 1 : 0]                data_i_r                               ;
-    reg  [NB_IN_PD  - 1 : 0]                data_q_r                               ;
-    reg  [NB_INDEX  - 1 : 0]                index_a                                ; // index to access lut
-    reg  [NB_IN_PD  - 1 : 0]                data_i_a                               ;
-    reg  [NB_IN_PD  - 1 : 0]                data_q_a                               ;     
+    reg  [14    - 1 : 0] index_r                                ; // index to access lut
+    reg  [8  - 1 : 0]    data_i_r                               ;
+    reg  [8  - 1 : 0]    data_q_r                               ;
+    reg  [14    - 1 : 0] index_a                                ; // index to access lut
+    reg  [8  - 1 : 0]    data_i_a                               ;
+    reg  [8  - 1 : 0]    data_q_a                               ;     
 
     reg s_in_phase_r    ;
     reg s_quadrature_r  ;
@@ -153,11 +153,11 @@ module phase_detector #(
 
     always @(*) begin
         if(s_in_phase_r && !s_quadrature_r) begin
-            phase_r_converted = PI_17_14 - $signed({1'b0,phase_r_h});
+            phase_r_converted = PI_10_7 - $signed({1'b0,phase_r_h});
         end
         
         else if(s_in_phase_r && s_quadrature_r) begin
-            phase_r_converted = $signed(~(PI_17_14 - $signed({1'b0,phase_r_h}) ) + 1);
+            phase_r_converted = $signed(~(PI_10_7 - $signed({1'b0,phase_r_h}) ) + 1);
         end
         
         else if(!s_in_phase_r && s_quadrature_r) begin
@@ -172,11 +172,11 @@ module phase_detector #(
 
     always @(*) begin
         if(s_in_phase_a && !s_quadrature_a) begin
-            phase_a_converted = PI_17_14 - $signed({1'b0,phase_a_h});
+            phase_a_converted = PI_10_7 - $signed({1'b0,phase_a_h});
         end
         
         else if(s_in_phase_a && s_quadrature_a) begin
-            phase_a_converted = $signed(~(PI_17_14 - $signed({1'b0,phase_a_h}) ) + 1);
+            phase_a_converted = $signed(~(PI_10_7 - $signed({1'b0,phase_a_h}) ) + 1);
         end
         
         else if(!s_in_phase_a && s_quadrature_a) begin
@@ -225,8 +225,8 @@ module phase_detector #(
 
 `elsif HALF_LUT
     lut_atan_only #(
-        .NB_DATA_INDEX  (NB_INDEX),
-        .NB_DATA_OUT    (NB_OUT_PD_HALF)    
+        .NB_DATA_INDEX  (14),
+        .NB_DATA_OUT    (8)    
     ) u_lut_a (
         .o_atan     (phase_a_h),
         .i_index    (index_a),
@@ -235,8 +235,8 @@ module phase_detector #(
     );
 
     lut_atan_only #(
-        .NB_DATA_INDEX  (NB_INDEX),
-        .NB_DATA_OUT    (NB_OUT_PD_HALF)    
+        .NB_DATA_INDEX  (14),
+        .NB_DATA_OUT    (8)    
     ) u_lut_r (
         .o_atan     (phase_r_h),
         .i_index    (index_r),
@@ -246,24 +246,58 @@ module phase_detector #(
 
 `elsif HALF_LUT_RAM
 
-    // RAM:
-    //      width: 15 (NB_OUT_PD_HALF)
-    //      depth: 16384 = 2**(7+7)
-    
-    ram_atan u_ram_r(
-    .clka(i_clock), 
-    .ena(i_rst_n), 
-    .addra(index_r),
-    .douta(phase_r_h)
-    );
+    `ifdef SYNTH
+        blk_mem_gen_0 your_rom (
+            .clka    (i_clock),
+            .addra   (index_r),
+            .douta   (phase_r_h)
+        );
 
-    ram_atan u_ram_a(
-    .clka(i_clock), 
-    .ena(i_rst_n), 
-    .addra(index_a),
-    .douta(phase_a_h)
-    );
+        lut_atan_ram #(
+            .NB_DATA_INDEX  (14),
+            .NB_DATA_OUT    (8)    
+        ) u_lut_a_ram (
+            .o_atan     (phase_a_h),
+            .i_index    (index_a),
+            .i_clock    (i_clock),
+            .i_rst_n    (i_rst_n)
+        );
 
+    `else
+        ram_atan u_ram_r(
+        .clka(i_clock), 
+        .ena(i_rst_n), 
+        .addra(index_r),
+        .douta(phase_r_h)
+        );
+
+        ram_atan u_ram_a(
+        .clka(i_clock), 
+        .ena(i_rst_n), 
+        .addra(index_a),
+        .douta(phase_a_h)
+        );
+            
+        // lut_atan_ram #(
+        //     .NB_DATA_INDEX  (14),
+        //     .NB_DATA_OUT    (8)    
+        // ) u_lut_a_ram (
+        //     .o_atan     (phase_a_h),
+        //     .i_index    (index_a),
+        //     .i_clock    (i_clock),
+        //     .i_rst_n    (i_rst_n)
+        // );
+
+        // lut_atan_ram #(
+        //     .NB_DATA_INDEX  (14),
+        //     .NB_DATA_OUT    (8)    
+        // ) u_lut_r_ram (
+        //     .o_atan     (phase_r_h),
+        //     .i_index    (index_r),
+        //     .i_clock    (i_clock),
+        //     .i_rst_n    (i_rst_n)
+        // );
+    `endif
     
 
 `endif 
