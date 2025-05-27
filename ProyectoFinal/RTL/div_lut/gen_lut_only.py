@@ -10,7 +10,7 @@ output_file_hex = os.path.join(script_dir, "atan_lut.mem")
 # error representation of atan:
 NB_LUT = 8
 NBF_LUT = 7
-NBF_ATAN_REP = 7
+NBF_ATAN_REP = 14
 NB_ATAN_REP = NBF_ATAN_REP + 1 
 LUT_SIZE=2**((NBF_LUT)*2)
 
@@ -57,7 +57,7 @@ with open(output_file, "w") as f, open(output_file_hex, "w") as f_hex:
                 atan_fxp = round(atan*2**NBF_ATAN_REP)
                 
                 f.write(f"          lut[{index}] <= {NB_ATAN_REP}'d{atan_fxp};\n")
-                f_hex.write(f"{format(atan_fxp, '08b')}\n")
+                f_hex.write(f"{format(atan_fxp, '015b')}\n")
 
     f.write("       end\n")
     

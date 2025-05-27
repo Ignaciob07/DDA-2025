@@ -1,6 +1,6 @@
 module sin_calc #(
-    parameter NB_DATA_IN    = 11,
-    parameter NBF_DATA_IN   = 7,
+    parameter NB_DATA_IN    = 18,
+    parameter NBF_DATA_IN   = 14,
     parameter NB_DATA_OUT   = 9,
     parameter NBF_DATA_OUT  = 7
 ) (
@@ -11,6 +11,7 @@ module sin_calc #(
 );
 
 localparam NBI_DATA_IN = NB_DATA_IN - NBF_DATA_IN          ;  
+localparam LUT_RES_OUT = 11;  
 
 wire  signed [NB_DATA_OUT      - 1 : 0] sin_lut            ;
 wire  signed [NB_DATA_OUT      - 1 : 0] sin_lut_debug            ;
@@ -30,7 +31,7 @@ assign o_sin = sin_lut;
 ram_sin u_ram_r(
     .clka(i_clock), 
     .ena(i_rst_n), 
-    .addra(i_data),
+    .addra(i_data[NB_DATA_IN - 1 -: LUT_RES_OUT]),
     .douta(sin_lut)
 );
 

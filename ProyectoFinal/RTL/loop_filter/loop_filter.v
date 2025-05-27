@@ -35,7 +35,7 @@ module loop_filter #(
 
     localparam signed TPI       = 18'd102944     ; //   pi * 2
     wire signed [NB_PHASE_IN  - 1 : 0] double_pi ;
-    assign double_pi = TPI[17 -: NB_PHASE_IN]    ;
+    assign double_pi = TPI[18 - 1 -: NB_PHASE_IN]    ;
 
     // PROP AND INTEG CONSTANTS
     localparam ki               = 14'd819          ; // 14 fractional bits
@@ -44,8 +44,8 @@ module loop_filter #(
     wire signed [NB_K : 0] w_ki;
     wire signed [NB_K : 0] w_kp;
 
-    assign w_ki = 8'd6;
-    assign w_kp = 8'd64;
+    assign w_ki = ki[14 - 1 -: NBF_PHASE_IN];
+    assign w_kp = kp[14 - 1 -: NBF_PHASE_IN];
 
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_proportional    ;
     reg  signed [NB_FULL_RES_MUL   - 1 : 0] mul_integrative     ;
@@ -61,8 +61,8 @@ module loop_filter #(
     // multiplication
     always @(*) begin
         
-        mul_proportional = $signed(i_phase) * w_kp;
-        mul_integrative  = $signed(i_phase) * w_ki;
+        mul_proportional = $signed(i_phase) * $signed({1'b0,w_kp});
+        mul_integrative  = $signed(i_phase) * $signed({1'b0,w_ki});
         
         // sum integrative acummultor
         sum_i_accum = r_accumulator_i + mul_integrative_ts;

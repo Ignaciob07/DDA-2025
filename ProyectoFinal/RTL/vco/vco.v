@@ -21,7 +21,7 @@ localparam NBF_SUM_ACC      = NBF_PHASE_IN   ;
 
 localparam signed TPI       = 18'd102944     ; //   pi * 2
 wire signed [NB_PHASE_IN  - 1 : 0] double_pi          ;
-assign double_pi = TPI[17 -: NB_PHASE_IN];
+assign double_pi = TPI[18 - 1 -: NB_PHASE_IN];
 
 reg  signed [NB_SUM_ACC        - 1 : 0] sum_i_accum; // S(19,14)
 reg  signed [NB_PHASE_IN       - 1 : 0] sum_i_converted     ; // S(18,14) if phase > 360° or phase < -360° +- 360
