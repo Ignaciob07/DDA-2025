@@ -1,0 +1,8 @@
+verilog xil_defaultlib --include "../../../../enviroment_test.gen/sources_1/bd/vio/ipshared/1b7e/hdl/verilog" --include "../../../../enviroment_test.gen/sources_1/bd/vio/ipshared/122e/hdl/verilog" --include "../../../../enviroment_test.gen/sources_1/bd/vio/ipshared/c420/hdl" \
+"../../../bd/vio/ip/vio_vio_0_0/sim/vio_vio_0_0.v" \
+"../../../bd/vio/sim/vio.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

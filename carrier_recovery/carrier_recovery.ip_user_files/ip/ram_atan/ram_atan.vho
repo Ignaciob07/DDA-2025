@@ -56,7 +56,7 @@ COMPONENT ram_atan
     clka : IN STD_LOGIC;
     ena : IN STD_LOGIC;
     addra : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
-    douta : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) 
+    douta : OUT STD_LOGIC_VECTOR(10 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

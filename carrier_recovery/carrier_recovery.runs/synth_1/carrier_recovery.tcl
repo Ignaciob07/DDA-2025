@@ -72,7 +72,6 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param chipscope.maxJobs 4
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -95,7 +94,7 @@ OPTRACE "Adding files" START { }
 add_files C:/Maestria/DDA-2025/ProyectoFinal/RTL/div_lut/atan_lut.coe
 add_files C:/Maestria/carrier_recovery/atan_lut.coe
 add_files C:/Maestria/carrier_recovery/sin_lut.coe
-add_files c:/Maestria/carrier_recovery/sin_lut_full.coe
+add_files C:/Maestria/carrier_recovery/sin_lut_full.coe
 read_verilog -library xil_defaultlib {
   C:/Maestria/DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v
   C:/Maestria/DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v
@@ -110,7 +109,7 @@ read_verilog -library xil_defaultlib {
 read_ip -quiet C:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_atan/ram_atan.xci
 set_property used_in_implementation false [get_files -all c:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_atan/ram_atan_ooc.xdc]
 
-read_ip -quiet c:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_sin/ram_sin.xci
+read_ip -quiet C:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_sin/ram_sin.xci
 set_property used_in_implementation false [get_files -all c:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_sin/ram_sin_ooc.xdc]
 
 OPTRACE "Adding files" END { }
@@ -125,6 +124,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.xdc
 set_property used_in_implementation false [get_files C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental C:/Maestria/carrier_recovery/carrier_recovery.srcs/utils_1/imports/synth_1/carrier_recovery.dcp

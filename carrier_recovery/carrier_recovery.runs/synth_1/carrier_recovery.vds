@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed May 21 11:18:19 2025
-# Process ID: 24716
+# Start of session at: Tue May 27 18:22:27 2025
+# Process ID: 1068
 # Current directory: C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1
 # Command line: vivado.exe -log carrier_recovery.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source carrier_recovery.tcl
 # Log file: C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/carrier_recovery.vds
@@ -12,7 +12,7 @@
 # Running On: IgnachPC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17088 MB
 #-----------------------------------------------------------
 source carrier_recovery.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 459.773 ; gain = 191.098
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 462.156 ; gain = 191.926
 Command: read_checkpoint -auto_incremental -incremental C:/Maestria/carrier_recovery/carrier_recovery.srcs/utils_1/imports/synth_1/carrier_recovery.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Maestria/carrier_recovery/carrier_recovery.srcs/utils_1/imports/synth_1/carrier_recovery.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,9 +25,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12136
+INFO: [Synth 8-7075] Helper process launched with PID 7232
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1284.551 ; gain = 411.859
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1284.273 ; gain = 411.387
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'carrier_recovery' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v:1]
 INFO: [Synth 8-6157] synthesizing module 'complex_multiplication' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v:1]
@@ -53,10 +53,12 @@ INFO: [Synth 8-6157] synthesizing module 'slicer' [C:/Maestria/DDA-2025/Proyecto
 	Parameter NB_DATA_IN_OUT bound to: 8 - type: integer 
 	Parameter NBF_DATA_IN_OUT bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'slicer' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/slicer/slicer.v:1]
-INFO: [Synth 8-6157] synthesizing module 'ram_atan' [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-24716-IgnachPC/realtime/ram_atan_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ram_atan' (0#1) [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-24716-IgnachPC/realtime/ram_atan_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ram_atan' [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-1068-IgnachPC/realtime/ram_atan_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ram_atan' (0#1) [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-1068-IgnachPC/realtime/ram_atan_stub.v:6]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (11) of module 'ram_atan' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v:269]
+WARNING: [Synth 8-689] width (8) of port connection 'douta' does not match port width (11) of module 'ram_atan' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v:276]
 INFO: [Synth 8-6155] done synthesizing module 'phase_detector' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/phase_detector/phase_detector.v:9]
-INFO: [Synth 8-6157] synthesizing module 'loop_filter' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'loop_filter' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v:4]
 	Parameter NB_PHASE_IN bound to: 11 - type: integer 
 	Parameter NBF_PHASE_IN bound to: 7 - type: integer 
 	Parameter NB_PHASE_OUT bound to: 11 - type: integer 
@@ -67,13 +69,13 @@ INFO: [Synth 8-6157] synthesizing module 'rounding__parameterized0' [C:/Maestria
 	Parameter NB_RND bound to: 11 - type: integer 
 	Parameter NBF_RND bound to: 7 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'rounding__parameterized0' (0#1) [C:/Maestria/DDA-2025/Basic_Modules/rounding.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'loop_filter' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v:3]
-INFO: [Synth 8-6157] synthesizing module 'vco' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'loop_filter' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/loop_filter/loop_filter.v:4]
+INFO: [Synth 8-6157] synthesizing module 'vco' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v:3]
 	Parameter NB_PHASE_IN bound to: 11 - type: integer 
 	Parameter NBF_PHASE_IN bound to: 7 - type: integer 
 	Parameter NB_PHASE_OUT bound to: 11 - type: integer 
 	Parameter NBF_PHASE_OUT bound to: 7 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'vco' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'vco' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/vco/vco.v:3]
 INFO: [Synth 8-6157] synthesizing module 'cos_calc' [C:/Maestria/DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v:1]
 	Parameter NB_DATA_IN bound to: 11 - type: integer 
 	Parameter NBF_DATA_IN bound to: 7 - type: integer 
@@ -84,26 +86,24 @@ INFO: [Synth 8-6157] synthesizing module 'sin_calc' [C:/Maestria/DDA-2025/Proyec
 	Parameter NBF_DATA_IN bound to: 7 - type: integer 
 	Parameter NB_DATA_OUT bound to: 9 - type: integer 
 	Parameter NBF_DATA_OUT bound to: 7 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'ram_sin' [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-24716-IgnachPC/realtime/ram_sin_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ram_sin' (0#1) [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-24716-IgnachPC/realtime/ram_sin_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ram_sin' [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-1068-IgnachPC/realtime/ram_sin_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ram_sin' (0#1) [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/.Xil/Vivado-1068-IgnachPC/realtime/ram_sin_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'sin_calc' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'cos_calc' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'carrier_recovery' (0#1) [C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v:1]
-WARNING: [Synth 8-7129] Port i_clock in module complex_multiplication is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_rst_n in module complex_multiplication is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1378.945 ; gain = 506.254
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1379.168 ; gain = 506.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1378.945 ; gain = 506.254
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1379.168 ; gain = 506.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1378.945 ; gain = 506.254
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1379.168 ; gain = 506.281
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1378.945 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1379.168 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -120,24 +120,26 @@ Parsing XDC File [C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrie
 Finished Parsing XDC File [C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/carrier_recovery_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/carrier_recovery_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1416.812 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1480.277 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1416.812 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1480.277 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -147,10 +149,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for u_phase_detector/u_ram_r. (constr
 Applied set_property KEEP_HIERARCHY = SOFT for u_cos_calc/u_sin_calc/u_ram_r. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for u_sin_calc/u_ram_r. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -167,7 +169,7 @@ Detailed RTL Component Info :
 	   2 Input    8 Bit       Adders := 5     
 	   3 Input    8 Bit       Adders := 1     
 +---Registers : 
-	               11 Bit    Registers := 2     
+	               11 Bit    Registers := 3     
 	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input   11 Bit        Muxes := 9     
@@ -191,25 +193,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -227,37 +229,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -280,36 +282,36 @@ Report Cell Usage:
 |5     |BUFG     |     1|
 |6     |CARRY4   |   105|
 |7     |LUT1     |    56|
-|8     |LUT2     |   189|
-|9     |LUT3     |    41|
+|8     |LUT2     |   188|
+|9     |LUT3     |    44|
 |10    |LUT4     |   123|
-|11    |LUT5     |    63|
-|12    |LUT6     |   171|
-|13    |FDCE     |    24|
+|11    |LUT5     |    60|
+|12    |LUT6     |   182|
+|13    |FDCE     |    35|
 |14    |IBUF     |    18|
 |15    |OBUF     |    16|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1416.812 ; gain = 506.254
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1416.812 ; gain = 544.121
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1480.277 ; gain = 506.281
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1480.277 ; gain = 607.391
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1416.812 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1480.277 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 105 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1418.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1480.277 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: d58f039c
+Synth Design complete | Checksum: a2720521
 INFO: [Common 17-83] Releasing license: Synthesis
 45 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1418.031 ; gain = 924.750
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1480.277 ; gain = 985.160
 INFO: [Common 17-1381] The checkpoint 'C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/carrier_recovery.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file carrier_recovery_utilization_synth.rpt -pb carrier_recovery_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May 21 11:18:57 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue May 27 18:23:05 2025...

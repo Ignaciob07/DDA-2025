@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Tue May 20 08:41:04 2025
+// Date        : Tue May 27 17:36:00 2025
 // Host        : IgnachPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_atan/ram_atan_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top ram_atan -prefix
+//               ram_atan_ ram_atan_stub.v
 // Design      : ram_atan
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35ticsg324-1L
@@ -16,10 +16,10 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "blk_mem_gen_v8_4_6,Vivado 2023.1" *)
 module ram_atan(clka, ena, addra, douta)
-/* synthesis syn_black_box black_box_pad_pin="ena,addra[13:0],douta[7:0]" */
+/* synthesis syn_black_box black_box_pad_pin="ena,addra[13:0],douta[10:0]" */
 /* synthesis syn_force_seq_prim="clka" */;
   input clka /* synthesis syn_isclock = 1 */;
   input ena;
   input [13:0]addra;
-  output [7:0]douta;
+  output [10:0]douta;
 endmodule

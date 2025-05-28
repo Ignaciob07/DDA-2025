@@ -115,7 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 
@@ -144,7 +143,7 @@ OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1/carrier_recovery.dcp
   read_ip -quiet C:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_atan/ram_atan.xci
-  read_ip -quiet c:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_sin/ram_sin.xci
+  read_ip -quiet C:/Maestria/carrier_recovery/carrier_recovery.srcs/sources_1/ip/ram_sin/ram_sin.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.xdc
 OPTRACE "read constraints: implementation" END { }

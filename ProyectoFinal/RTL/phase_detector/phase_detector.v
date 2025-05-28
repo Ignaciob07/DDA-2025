@@ -244,6 +244,7 @@ output reg signed  [NB_OUT_PD - 1 : 0]     o_phase_error  ,
 
 `elsif HALF_LUT_RAM
 
+        // use 11 bit out
         ram_atan u_ram_r(
         .clka(i_clock), 
         .ena(i_rst_n), 

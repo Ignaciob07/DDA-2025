@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1747837096" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/carrier_recovery.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1748380943" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/carrier_recovery.dcp">
   <File Type="PA-TCL" Name="carrier_recovery.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="carrier_recovery_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="carrier_recovery_reports.tcl"/>
@@ -11,6 +11,13 @@
   <File Type="VDS-TIMING-PB" Name="carrier_recovery_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/ram_atan/ram_atan.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -198,6 +205,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="ram_atan"/>
   <BlockFileSet Type="BlockSrcs" Name="ram_sin"/>
 </GenRun>
