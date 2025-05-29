@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Maestria/enviroment_test/enviroment_test.runs/impl_1/top_test_module.tcl"
+  variable script "C:/Maestria/DDA-2025/enviroment_test/enviroment_test.runs/impl_1/top_test_module.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,37 +122,34 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 4
-  set_param runs.launchOptions { -jobs 16  }
+  set_param tcl.collectionResultDisplayLimit 0
+  set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
+  set_param runs.launchOptions { -jobs 12  }
 OPTRACE "create in-memory project" START { }
-  create_project -in_memory -part xc7a35ticsg324-1L
-  set_property board_part digilentinc.com:arty-a7-35:part0:1.0 [current_project]
+  create_project -in_memory -part xc7a100tcsg324-1
+  set_property board_part digilentinc.com:arty-a7-100:part0:1.0 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Maestria/enviroment_test/enviroment_test.cache/wt [current_project]
-  set_property parent.project_path C:/Maestria/enviroment_test/enviroment_test.xpr [current_project]
-  set_property ip_output_repo C:/Maestria/enviroment_test/enviroment_test.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Maestria/DDA-2025/enviroment_test/enviroment_test.cache/wt [current_project]
+  set_property parent.project_path C:/Maestria/DDA-2025/enviroment_test/enviroment_test.xpr [current_project]
+  set_property ip_output_repo C:/Maestria/DDA-2025/enviroment_test/enviroment_test.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Maestria/enviroment_test/enviroment_test.runs/synth_1/top_test_module.dcp
-  set_msg_config -source 4 -id {BD 41-1661} -limit 0
-  set_param project.isImplRun true
-  add_files C:/Maestria/enviroment_test/enviroment_test.srcs/sources_1/bd/vio/vio.bd
-  read_ip -quiet c:/Maestria/enviroment_test/enviroment_test.srcs/sources_1/ip/ila_0/ila_0.xci
-  set_param project.isImplRun false
+  add_files -quiet C:/Maestria/DDA-2025/enviroment_test/enviroment_test.runs/synth_1/top_test_module.dcp
+  read_ip -quiet C:/Maestria/DDA-2025/enviroment_test/enviroment_test.srcs/sources_1/ip/ila_1/ila_1.xci
+  read_ip -quiet c:/Maestria/DDA-2025/enviroment_test/enviroment_test.srcs/sources_1/ip/ram_i/ram_i.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Maestria/DDA-2025/ProyectoFinal/RTL/top_test_module/top_test.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  set_param project.isImplRun true
-  link_design -top top_test_module -part xc7a35ticsg324-1L 
+  link_design -top top_test_module -part xc7a100tcsg324-1 
 OPTRACE "link_design" END { }
-  set_param project.isImplRun false
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }

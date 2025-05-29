@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Wed May 28 08:20:41 2025
+// Date        : Wed May 28 08:20:40 2025
 // Host        : IgnachPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/bd/vio/ip/vio_vio_0_0/vio_vio_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top vio_vio_0_0 -prefix
+//               vio_vio_0_0_ vio_vio_0_0_stub.v
 // Design      : vio_vio_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35ticsg324-1L

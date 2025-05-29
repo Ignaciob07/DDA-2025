@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Wed May 28 16:26:45 2025
+# Process ID: 22844
+# Current directory: C:/Maestria/DDA-2025/enviroment_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4268 C:\Maestria\DDA-2025\enviroment_test\enviroment_test.xpr
+# Log file: C:/Maestria/DDA-2025/enviroment_test/vivado.log
+# Journal file: C:/Maestria/DDA-2025/enviroment_test\vivado.jou
+# Running On: IBALBO_CELERO, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 34000 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Maestria/DDA-2025/enviroment_test/enviroment_test.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+reset_run ila_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1

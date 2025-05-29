@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Maestria/enviroment_test/enviroment_test.runs/synth_1/top_test_module.tcl"
+  variable script "C:/Maestria/DDA-2025/enviroment_test/enviroment_test.runs/synth_1/top_test_module.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,37 +70,40 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param tcl.collectionResultDisplayLimit 0
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7a35ticsg324-1L
+create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Maestria/enviroment_test/enviroment_test.cache/wt [current_project]
-set_property parent.project_path C:/Maestria/enviroment_test/enviroment_test.xpr [current_project]
+set_property webtalk.parent_dir C:/Maestria/DDA-2025/enviroment_test/enviroment_test.cache/wt [current_project]
+set_property parent.project_path C:/Maestria/DDA-2025/enviroment_test/enviroment_test.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:arty-a7-35:part0:1.0 [current_project]
-set_property ip_output_repo c:/Maestria/enviroment_test/enviroment_test.cache/ip [current_project]
+set_property board_part digilentinc.com:arty-a7-100:part0:1.0 [current_project]
+set_property ip_output_repo c:/Maestria/DDA-2025/enviroment_test/enviroment_test.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files c:/Maestria/DDA-2025/ProyectoFinal/RTL/input_ram_stim/input_data_i.coe
+add_files c:/Maestria/DDA-2025/ProyectoFinal/RTL/input_ram_stim/input_data_q.coe
 read_verilog -library xil_defaultlib {
   C:/Maestria/DDA-2025/ProyectoFinal/RTL/counter/counter.v
   C:/Maestria/DDA-2025/ProyectoFinal/RTL/top_test_module/top_test_module.v
 }
-add_files C:/Maestria/enviroment_test/enviroment_test.srcs/sources_1/bd/vio/vio.bd
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/bd/vio/ip/vio_vio_0_0/vio_vio_0_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/bd/vio/ip/vio_vio_0_0/vio_vio_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/bd/vio/vio_ooc.xdc]
+read_ip -quiet C:/Maestria/DDA-2025/enviroment_test/enviroment_test.srcs/sources_1/ip/ila_1/ila_1.xci
+set_property used_in_synthesis false [get_files -all c:/Maestria/DDA-2025/enviroment_test/enviroment_test.gen/sources_1/ip/ila_1/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/Maestria/DDA-2025/enviroment_test/enviroment_test.gen/sources_1/ip/ila_1/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all c:/Maestria/DDA-2025/enviroment_test/enviroment_test.gen/sources_1/ip/ila_1/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all c:/Maestria/DDA-2025/enviroment_test/enviroment_test.gen/sources_1/ip/ila_1/ila_1_ooc.xdc]
 
-read_ip -quiet c:/Maestria/enviroment_test/enviroment_test.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_synthesis false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
-set_property used_in_implementation false [get_files -all c:/Maestria/enviroment_test/enviroment_test.gen/sources_1/ip/ila_0/ila_0_ooc.xdc]
+read_ip -quiet c:/Maestria/DDA-2025/enviroment_test/enviroment_test.srcs/sources_1/ip/ram_i/ram_i.xci
+set_property used_in_implementation false [get_files -all c:/Maestria/DDA-2025/enviroment_test/enviroment_test.gen/sources_1/ip/ram_i/ram_i_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -114,13 +117,13 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Maestria/DDA-2025/ProyectoFinal/RTL/top_test_module/top_test.xdc
 set_property used_in_implementation false [get_files C:/Maestria/DDA-2025/ProyectoFinal/RTL/top_test_module/top_test.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Maestria/DDA-2025/enviroment_test/enviroment_test.srcs/utils_1/imports/synth_1/top_test_module.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top top_test_module -part xc7a35ticsg324-1L
+synth_design -top top_test_module -part xc7a100tcsg324-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

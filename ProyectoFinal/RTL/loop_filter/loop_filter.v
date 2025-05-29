@@ -64,6 +64,7 @@ module loop_filter #(
     reg  signed [NB_SUM_P_I        - 1 : 0] sum_pi              ;
 
     // multiplication
+
     always @(*) begin
         
         mul_proportional = $signed(i_phase) * w_kp;

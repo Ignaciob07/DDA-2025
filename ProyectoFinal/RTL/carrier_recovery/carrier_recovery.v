@@ -10,6 +10,7 @@ module carrier_recovery #(
     output signed [NB_OUT_CARRIER_RECOVERY - 1 : 0] o_corrected_q       ,
     input  signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_i            ,
     input  signed [NB_IN_CARRIER_RECOVERY  - 1 : 0] i_data_q            ,
+    output reg signed [11                      - 1 : 0] o_phase_error       ,
     input                                           i_clock             ,
     input                                           i_rst_n         
 );
@@ -94,6 +95,13 @@ phase_detector #(
     .i_clock      (i_clock           ),
     .i_rst_n      (i_rst_n           )
 );
+always @(posedge i_clock ) begin
+    if (!i_rst_n) begin
+        o_phase_error <= 0;
+    end
+    else
+        o_phase_error <= phase_detector_out;
+end
 
 loop_filter #(
     .NB_PHASE_IN    (NB_LF_IN   ),
