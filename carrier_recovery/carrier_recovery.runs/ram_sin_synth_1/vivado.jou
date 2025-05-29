@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed May 21 10:51:55 2025
-# Process ID: 22572
+# Start of session at: Thu May 29 13:40:27 2025
+# Process ID: 30956
 # Current directory: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_sin_synth_1
 # Command line: vivado.exe -log ram_sin.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_sin.tcl
 # Log file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_sin_synth_1/ram_sin.vds
 # Journal file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_sin_synth_1\vivado.jou
-# Running On: IgnachPC, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 17088 MB
+# Running On: IBALBO_CELERO, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 34000 MB
 #-----------------------------------------------------------
 source ram_sin.tcl -notrace

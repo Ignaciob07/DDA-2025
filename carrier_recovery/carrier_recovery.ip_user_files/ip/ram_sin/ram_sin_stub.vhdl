@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
--- Date        : Wed May 21 10:52:42 2025
+-- Date        : Wed May 21 10:52:41 2025
 -- Host        : IgnachPC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               c:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_sin/ram_sin_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top ram_sin -prefix
+--               ram_sin_ ram_sin_stub.vhdl
 -- Design      : ram_sin
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35ticsg324-1L

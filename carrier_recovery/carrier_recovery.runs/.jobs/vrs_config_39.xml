@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="ram_sin_synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_sin_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vio_0_synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/vio_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="ram_i_synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="ila_1_synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/ila_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="rom_q_synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/rom_q_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="ram_sin_synth_1"/>
+		<Parent Id="vio_0_synth_1"/>
+		<Parent Id="ram_i_synth_1"/>
+		<Parent Id="ila_1_synth_1"/>
+		<Parent Id="rom_q_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="C:/Maestria/carrier_recovery/carrier_recovery.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="route_design">
+		<Parent Id="synth_1"/>
+		<Parent Id="ram_sin_synth_1"/>
+		<Parent Id="vio_0_synth_1"/>
+		<Parent Id="ram_i_synth_1"/>
+		<Parent Id="ila_1_synth_1"/>
+		<Parent Id="rom_q_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

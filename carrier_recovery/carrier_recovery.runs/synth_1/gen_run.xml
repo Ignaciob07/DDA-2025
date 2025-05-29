@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1748380943" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/carrier_recovery.dcp">
-  <File Type="PA-TCL" Name="carrier_recovery.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="carrier_recovery_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="carrier_recovery_reports.tcl"/>
-  <File Type="RDS-RDS" Name="carrier_recovery.vds"/>
-  <File Type="RDS-UTIL" Name="carrier_recovery_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="carrier_recovery_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="carrier_recovery.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="carrier_recovery_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="carrier_recovery_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1748538792" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/carrier_recovery.dcp">
+  <File Type="PA-TCL" Name="top_test_module.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_test_module_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="top_test_module_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top_test_module.vds"/>
+  <File Type="RDS-UTIL" Name="top_test_module_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_test_module_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top_test_module.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_test_module_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_test_module_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/ip/ram_atan/ram_atan.xci">
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -26,6 +26,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/counter/counter.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -74,46 +81,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v">
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/top_test_module/top_test_module.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin_full.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc_quarter.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan_ram.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../DDA-2025/Basic_Modules/trunc_sat.v">
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -137,7 +112,39 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan.v">
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/div_lut/lut_atan_ram.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_lut/lut_sin_full.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/sin_calc/sin_calc_quarter.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/Basic_Modules/trunc_sat.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -169,10 +176,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/input_ram_stim/input_data_i.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../DDA-2025/ProyectoFinal/RTL/input_ram_stim/input_data_q.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="carrier_recovery"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="top_test_module"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -194,6 +212,8 @@
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="UsedInSteps" Val="synth_1_copy_1"/>
+        <Attr Name="UsedInSteps" Val="synth_1_copy_2"/>
         <Attr Name="AutoDcp" Val="1"/>
       </FileInfo>
     </File>
@@ -202,8 +222,17 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
-    <Step Id="synth_design"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design">
+      <Option Id="ReTiming">1</Option>
+    </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="ram_sin"/>
+  <BlockFileSet Type="BlockSrcs" Name="vio_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="ila_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="ram_i"/>
+  <BlockFileSet Type="BlockSrcs" Name="rom_q"/>
+  <BlockFileSet Type="BlockSrcs" Name="ram_atan"/>
 </GenRun>

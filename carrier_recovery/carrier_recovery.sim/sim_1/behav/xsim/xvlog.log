@@ -1,6 +1,6 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_sin/sim/ram_sin.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ram_sin
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_atan/sim/ram_atan.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Maestria/carrier_recovery/carrier_recovery.gen/sources_1/ip/ram_atan_1/sim/ram_atan.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ram_atan
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Maestria/DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module carrier_recovery

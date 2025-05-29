@@ -1,0 +1,2 @@
+rom_q.v,verilog,xil_defaultlib,../../../../carrier_recovery.gen/sources_1/ip/rom_q/sim/rom_q.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

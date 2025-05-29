@@ -1,7 +1,10 @@
 # compile verilog/system verilog design source files
+verilog blk_mem_gen_v8_4_6  \
+"../../../../carrier_recovery.ip_user_files/ipstatic/simulation/blk_mem_gen_v8_4.v" \
+
 verilog xil_defaultlib  \
 "../../../../carrier_recovery.gen/sources_1/ip/ram_sin/sim/ram_sin.v" \
-"../../../../carrier_recovery.gen/sources_1/ip/ram_atan/sim/ram_atan.v" \
+"../../../../carrier_recovery.gen/sources_1/ip/ram_atan_1/sim/ram_atan.v" \
 "../../../../../DDA-2025/ProyectoFinal/RTL/carrier_recovery/carrier_recovery.v" \
 "../../../../../DDA-2025/ProyectoFinal/RTL/complex_multiplication/complex_multiplication.v" \
 "../../../../../DDA-2025/ProyectoFinal/RTL/cos_calc/cos_calc.v" \

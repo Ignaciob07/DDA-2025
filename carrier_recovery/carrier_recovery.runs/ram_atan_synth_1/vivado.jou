@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu May 29 13:39:12 2025
+# Process ID: 17848
+# Current directory: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_atan_synth_1
+# Command line: vivado.exe -log ram_atan.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_atan.tcl
+# Log file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_atan_synth_1/ram_atan.vds
+# Journal file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_atan_synth_1\vivado.jou
+# Running On: IBALBO_CELERO, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 34000 MB
+#-----------------------------------------------------------
+source ram_atan.tcl -notrace

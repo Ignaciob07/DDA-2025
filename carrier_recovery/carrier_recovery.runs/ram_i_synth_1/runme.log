@@ -1,0 +1,25 @@
+
+*** Running vivado
+    with args -log ram_i.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_i.tcl
+
+
+ECHO is off.
+ECHO is off.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ram_i.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ram_i
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 8275229269864ee8 to dir: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i.dcp to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_sim_netlist.v to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_sim_netlist.vhdl to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_stub.v to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_stub.vhdl to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP ram_i, cache-ID = 8275229269864ee8.
+INFO: [Common 17-206] Exiting Vivado at Thu May 29 13:40:46 2025...

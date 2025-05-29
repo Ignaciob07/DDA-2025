@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu May 29 13:40:27 2025
+# Process ID: 33536
+# Current directory: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1
+# Command line: vivado.exe -log ram_i.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ram_i.tcl
+# Log file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i.vds
+# Journal file: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1\vivado.jou
+# Running On: IBALBO_CELERO, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 34000 MB
+#-----------------------------------------------------------
+source ram_i.tcl -notrace
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: ram_i
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 8275229269864ee8 to dir: C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i.dcp to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_sim_netlist.v to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_sim_netlist.vhdl to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_stub.v to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Maestria/carrier_recovery/carrier_recovery.cache/ip/2023.1/8/2/8275229269864ee8/ram_i_stub.vhdl to C:/Maestria/carrier_recovery/carrier_recovery.runs/ram_i_synth_1/ram_i_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP ram_i, cache-ID = 8275229269864ee8.
+INFO: [Common 17-206] Exiting Vivado at Thu May 29 13:40:46 2025...
